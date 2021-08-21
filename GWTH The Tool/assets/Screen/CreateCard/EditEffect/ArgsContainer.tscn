@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/Screen/CreateCard/EditEffect/ArgsContainer.gd" type="Script" id=2]
+
+[node name="AllArgsContainer" type="VBoxContainer"]
+margin_left = 411.0
+margin_right = 547.0
+margin_bottom = 56.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddArgsBtn" type="Button" parent="."]
+margin_right = 136.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Add Args +"
+
+[connection signal="pressed" from="AddArgsBtn" to="." method="_on_AddArgsBtn_pressed"]

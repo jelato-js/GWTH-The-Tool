@@ -1,0 +1,375 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Theme/new_theme-01.tres" type="Theme" id=1]
+[ext_resource path="res://assets/Screen/Mods.gd" type="Script" id=2]
+[ext_resource path="res://assets/Font/CSChatThai/CSChatThai_dynamicfont_header.tres" type="DynamicFont" id=3]
+
+[node name="Mods" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModsPanel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -468.0
+margin_top = -256.0
+margin_right = 468.0
+margin_bottom = 256.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModsItemList" type="ItemList" parent="ModsPanel"]
+margin_left = 24.0
+margin_top = 92.0
+margin_right = 596.0
+margin_bottom = 455.0
+items = [ "mod-name", null, false, "author_name", null, false, "1.0.0", null, false, "mod-name ", null, false, "author_name", null, false, "1.0.0", null, false ]
+select_mode = 1
+max_columns = 3
+same_column_width = true
+fixed_column_width = 176
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RefreshBtn" type="Button" parent="ModsPanel"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = -44.0
+margin_right = 120.0
+margin_bottom = -16.0
+rect_pivot_offset = Vector2( -320, -64 )
+text = "Refresh"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewModBtn" type="Button" parent="ModsPanel"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 148.0
+margin_top = -44.0
+margin_right = 244.0
+margin_bottom = -16.0
+rect_pivot_offset = Vector2( -320, -64 )
+text = "New Mod"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnableBtn" type="Button" parent="ModsPanel"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 804.0
+margin_top = -492.0
+margin_right = 916.0
+margin_bottom = -460.0
+rect_pivot_offset = Vector2( -320, -64 )
+text = "Enable"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DisableBtn" type="Button" parent="ModsPanel"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 804.0
+margin_top = -492.0
+margin_right = 916.0
+margin_bottom = -460.0
+rect_pivot_offset = Vector2( -320, -64 )
+text = "Disable"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EditInfoBtn" type="Button" parent="ModsPanel"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 612.0
+margin_top = -492.0
+margin_right = 724.0
+margin_bottom = -460.0
+rect_pivot_offset = Vector2( -320, -64 )
+text = "Edit Info"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitBtn" type="Button" parent="ModsPanel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -116.0
+margin_top = -44.0
+margin_right = -22.0
+margin_bottom = -16.0
+rect_pivot_offset = Vector2( 40, -64 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetBtn" type="Button" parent="ModsPanel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -436.0
+margin_top = -44.0
+margin_right = -342.0
+margin_bottom = -16.0
+rect_pivot_offset = Vector2( 40, -64 )
+custom_colors/font_color = Color( 1, 0.0784314, 0.0784314, 1 )
+text = "Default"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ModsPanel"]
+margin_left = 612.0
+margin_top = 72.0
+margin_right = 916.0
+margin_bottom = 455.0
+bbcode_text = "Name:
+
+
+Type: %s
+Author: %s
+Version: %s
+Last Edit: %s
+Description:
+	%s"
+text = "Name:
+
+
+Type: %s
+Author: %s
+Version: %s
+Last Edit: %s
+Description:
+	%s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModNameLabel" type="Label" parent="ModsPanel"]
+margin_left = 612.0
+margin_top = 92.0
+margin_right = 916.0
+margin_bottom = 135.0
+custom_fonts/font = ExtResource( 3 )
+text = "{ModName}"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SearchLineEdit" type="LineEdit" parent="ModsPanel"]
+margin_left = 24.0
+margin_top = 20.0
+margin_right = 596.0
+margin_bottom = 50.0
+align = 1
+clear_button_enabled = true
+placeholder_text = "search..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FilterOptionButton" type="OptionButton" parent="ModsPanel"]
+margin_left = 24.0
+margin_top = 59.0
+margin_right = 108.0
+margin_bottom = 85.0
+text = "All"
+items = [ "All", null, false, 0, null, "Enable", null, false, 1, null, "Disable", null, false, 2, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ModsPanel"]
+margin_left = 117.0
+margin_top = 62.0
+margin_right = 178.0
+margin_bottom = 82.0
+text = "Sort by: "
+
+[node name="SortByOptionButton" type="OptionButton" parent="ModsPanel"]
+margin_left = 188.0
+margin_top = 59.0
+margin_right = 404.0
+margin_bottom = 85.0
+text = "Id (A-Z)"
+items = [ "Id (A-Z)", null, false, 1, null, "Name (A-Z)", null, false, 2, null, "Author (A-Z)", null, false, 3, null, "Type (A-Z)", null, false, 4, null, "Version (A-Z)", null, false, 5, null, "Last Date Edit (A-Z)", null, false, 5, null, "Id (Z-A)", null, false, 6, null, "Name (Z-A)", null, false, 7, null, "Author (Z-A)", null, false, 8, null, "Type (Z-A)", null, false, 9, null, "Version (Z-A)", null, false, 10, null, "Last Date Edit (Z-A)", null, false, 11, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModInfo" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="ModInfo"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.658824 )
+
+[node name="ModInfoPanel" type="Panel" parent="ModInfo"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -194.0
+margin_right = 256.0
+margin_bottom = 194.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModIdLabel" type="Label" parent="ModInfo/ModInfoPanel"]
+margin_left = 16.0
+margin_top = 20.0
+margin_right = 85.0
+margin_bottom = 40.0
+text = "Mod Id :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModIdLineEdit" type="LineEdit" parent="ModInfo/ModInfoPanel"]
+margin_left = 128.0
+margin_top = 12.0
+margin_right = 384.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="ModInfo/ModInfoPanel"]
+margin_left = 400.0
+margin_top = 20.0
+margin_right = 479.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 0.941176, 1, 0, 1 )
+text = "* Unique Id"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModNameLabel" type="Label" parent="ModInfo/ModInfoPanel"]
+margin_left = 16.0
+margin_top = 60.0
+margin_right = 103.0
+margin_bottom = 80.0
+text = "Mod Name :"
+
+[node name="ModNameLineEdit" type="LineEdit" parent="ModInfo/ModInfoPanel"]
+margin_left = 128.0
+margin_top = 52.0
+margin_right = 384.0
+margin_bottom = 82.0
+
+[node name="AuthorLabel" type="Label" parent="ModInfo/ModInfoPanel"]
+margin_left = 16.0
+margin_top = 100.0
+margin_right = 103.0
+margin_bottom = 120.0
+rect_pivot_offset = Vector2( 688, -120 )
+text = "Author :"
+
+[node name="AuthorLineEdit" type="LineEdit" parent="ModInfo/ModInfoPanel"]
+margin_left = 128.0
+margin_top = 92.0
+margin_right = 384.0
+margin_bottom = 122.0
+
+[node name="VersionLabel" type="Label" parent="ModInfo/ModInfoPanel"]
+margin_left = 16.0
+margin_top = 140.0
+margin_right = 103.0
+margin_bottom = 160.0
+rect_pivot_offset = Vector2( 688, -120 )
+text = "Version :"
+
+[node name="VersionLineEdit" type="LineEdit" parent="ModInfo/ModInfoPanel"]
+margin_left = 128.0
+margin_top = 132.0
+margin_right = 384.0
+margin_bottom = 162.0
+
+[node name="TypeLabel" type="Label" parent="ModInfo/ModInfoPanel"]
+margin_left = 16.0
+margin_top = 180.0
+margin_right = 103.0
+margin_bottom = 200.0
+rect_pivot_offset = Vector2( 688, -120 )
+text = "Type :"
+
+[node name="TypeOptionButton" type="OptionButton" parent="ModInfo/ModInfoPanel"]
+margin_left = 128.0
+margin_top = 172.0
+margin_right = 384.0
+margin_bottom = 202.0
+text = "Card Only"
+items = [ "Card Only", null, false, 0, null, "Stroy Mode", null, false, 1, null, "Card And Story", null, false, 2, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescLabel" type="Label" parent="ModInfo/ModInfoPanel"]
+margin_left = 16.0
+margin_top = 220.0
+margin_right = 107.0
+margin_bottom = 240.0
+rect_pivot_offset = Vector2( 688, -120 )
+text = "Description :"
+
+[node name="DescTextEdit" type="TextEdit" parent="ModInfo/ModInfoPanel"]
+margin_left = 128.0
+margin_top = 212.0
+margin_right = 496.0
+margin_bottom = 340.0
+
+[node name="SaveButton" type="Button" parent="ModInfo/ModInfoPanel"]
+margin_left = 416.0
+margin_top = 348.0
+margin_right = 496.0
+margin_bottom = 374.0
+text = "Save"
+
+[node name="CancelButton" type="Button" parent="ModInfo/ModInfoPanel"]
+margin_left = 16.0
+margin_top = 348.0
+margin_right = 96.0
+margin_bottom = 374.0
+text = "Cancel"
+
+[connection signal="multi_selected" from="ModsPanel/ModsItemList" to="." method="_on_ModsItemList_multi_selected"]
+[connection signal="pressed" from="ModsPanel/RefreshBtn" to="." method="_on_RefreshBtn_pressed"]
+[connection signal="pressed" from="ModsPanel/NewModBtn" to="." method="_on_NewModBtn_pressed"]
+[connection signal="pressed" from="ModsPanel/EnableBtn" to="." method="_on_EnableBtn_pressed"]
+[connection signal="pressed" from="ModsPanel/DisableBtn" to="." method="_on_DisableBtn_pressed"]
+[connection signal="pressed" from="ModsPanel/EditInfoBtn" to="." method="_on_EditInfoBtn_pressed"]
+[connection signal="pressed" from="ModsPanel/ExitBtn" to="." method="_on_ExitBtn_pressed"]
+[connection signal="text_changed" from="ModsPanel/SearchLineEdit" to="." method="_on_SearchLineEdit_text_changed"]
+[connection signal="item_selected" from="ModsPanel/FilterOptionButton" to="." method="_on_FilterOptionButton_item_selected"]
+[connection signal="item_selected" from="ModsPanel/SortByOptionButton" to="." method="_on_SortByOptionButton_item_selected"]
+[connection signal="text_changed" from="ModInfo/ModInfoPanel/ModIdLineEdit" to="." method="_on_ModIdLineEdit_text_changed"]
+[connection signal="pressed" from="ModInfo/ModInfoPanel/SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="ModInfo/ModInfoPanel/CancelButton" to="." method="_on_CancelButton_pressed"]

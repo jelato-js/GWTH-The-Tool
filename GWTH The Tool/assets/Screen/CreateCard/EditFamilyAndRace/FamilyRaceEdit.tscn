@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Theme/new_theme-01.tres" type="Theme" id=1]
+[ext_resource path="res://assets/Screen/CreateCard/EditFamilyAndRace/FamilyRaceEdit.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0882568, 0.0882568, 0.09375, 1 )
+
+[node name="FamilyRaceEdit" type="Control"]
+margin_left = 272.0
+margin_top = 168.0
+margin_right = 512.0
+margin_bottom = 400.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 134.0
+margin_bottom = 20.0
+text = "Family:"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_top = 25.0
+margin_right = 232.0
+margin_bottom = 182.0
+custom_styles/bg = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewEdit" type="LineEdit" parent="."]
+margin_top = 190.0
+margin_right = 176.0
+margin_bottom = 220.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddNewBtn" type="Button" parent="."]
+margin_left = 184.0
+margin_top = 192.0
+margin_right = 232.0
+margin_bottom = 218.0
+text = "Add"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="text_changed" from="NewEdit" to="." method="_on_NewEdit_text_changed"]
+[connection signal="text_entered" from="NewEdit" to="." method="_on_NewEdit_text_entered"]
+[connection signal="pressed" from="AddNewBtn" to="." method="_on_AddNewBtn_pressed"]

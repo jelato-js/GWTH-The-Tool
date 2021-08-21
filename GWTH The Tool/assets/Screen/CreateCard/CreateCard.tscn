@@ -1,0 +1,318 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/Theme/new_theme-01.tres" type="Theme" id=1]
+[ext_resource path="res://assets/Screen/CreateCard/EditCard/EditCardTabContainer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Screen/CreateCard/CreateCard.gd" type="Script" id=3]
+[ext_resource path="res://assets/Screen/CreateCard/EditFamilyAndRace/FamilyRaceEdit.tscn" type="PackedScene" id=4]
+
+[node name="CreateCard" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreateCardPanel" type="Panel" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1008.0
+margin_bottom = 584.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardListControl" type="Control" parent="CreateCardPanel"]
+margin_right = 320.0
+margin_bottom = 568.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModOptionButton" type="OptionButton" parent="CreateCardPanel/CardListControl"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 304.0
+margin_bottom = 48.0
+text = "<Mod Name>"
+align = 1
+items = [ "<Mod Name>", null, true, 0, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardItemList" type="ItemList" parent="CreateCardPanel/CardListControl"]
+margin_left = 16.0
+margin_top = 56.0
+margin_right = 304.0
+margin_bottom = 448.0
+items = [ "001 : CardName", null, false, "002 : CardName", null, false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewCardBtn" type="Button" parent="CreateCardPanel/CardListControl"]
+margin_left = 16.0
+margin_top = 456.0
+margin_right = 304.0
+margin_bottom = 482.0
+text = "New Card"
+
+[node name="EditFamilyRaceBtn" type="Button" parent="CreateCardPanel/CardListControl"]
+margin_left = 16.0
+margin_top = 488.0
+margin_right = 304.0
+margin_bottom = 514.0
+text = "Edit Family&Race"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeleteMultiBtn" type="Button" parent="CreateCardPanel/CardListControl"]
+margin_left = 16.0
+margin_top = 520.0
+margin_right = 156.0
+margin_bottom = 546.0
+text = "Delete Multiple"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeleteCardBtn" type="Button" parent="CreateCardPanel/CardListControl"]
+margin_left = 164.0
+margin_top = 520.0
+margin_right = 304.0
+margin_bottom = 546.0
+rect_pivot_offset = Vector2( 140, 0 )
+text = "Delete Card"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DelCancelBtn" type="Button" parent="CreateCardPanel/CardListControl"]
+visible = false
+margin_left = 16.0
+margin_top = 520.0
+margin_right = 156.0
+margin_bottom = 546.0
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DelConfirmBtn" type="Button" parent="CreateCardPanel/CardListControl"]
+visible = false
+margin_left = 164.0
+margin_top = 520.0
+margin_right = 304.0
+margin_bottom = 546.0
+rect_pivot_offset = Vector2( 140, 0 )
+text = "Confirm"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EditCardTabContainer" parent="CreateCardPanel" instance=ExtResource( 2 )]
+
+[node name="SaveBtn" type="Button" parent="CreateCardPanel"]
+margin_left = 576.0
+margin_top = 520.0
+margin_right = 701.0
+margin_bottom = 546.0
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseBtn" type="Button" parent="CreateCardPanel"]
+margin_left = 712.0
+margin_top = 520.0
+margin_right = 837.0
+margin_bottom = 546.0
+text = "Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveAndCloseBtn" type="Button" parent="CreateCardPanel"]
+margin_left = 848.0
+margin_top = 520.0
+margin_right = 973.0
+margin_bottom = 546.0
+text = "Save & Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EditFamilyRaceControl" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="EditFamilyRaceControl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.658824 )
+
+[node name="Panel" type="Panel" parent="EditFamilyRaceControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -172.0
+margin_right = 256.0
+margin_bottom = 148.0
+theme = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="EditFamilyRaceControl/Panel"]
+margin_left = 16.0
+margin_top = 12.0
+margin_right = 150.0
+margin_bottom = 32.0
+text = "Edit Family & Race"
+
+[node name="CloseBtn" type="Button" parent="EditFamilyRaceControl/Panel"]
+margin_left = 264.0
+margin_top = 282.0
+margin_right = 375.0
+margin_bottom = 308.0
+text = "Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveBtn" type="Button" parent="EditFamilyRaceControl/Panel"]
+margin_left = 144.0
+margin_top = 282.0
+margin_right = 255.0
+margin_bottom = 308.0
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveAndCloseBtn" type="Button" parent="EditFamilyRaceControl/Panel"]
+margin_left = 384.0
+margin_top = 282.0
+margin_right = 495.0
+margin_bottom = 308.0
+text = "Save & Close"
+
+[node name="FamilyRaceEdit" parent="EditFamilyRaceControl" instance=ExtResource( 4 )]
+
+[node name="FamilyRaceEdit2" parent="EditFamilyRaceControl" instance=ExtResource( 4 )]
+margin_left = 519.0
+margin_top = 166.0
+margin_right = 759.0
+margin_bottom = 398.0
+typeState = 1
+
+[node name="NewCardControl" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="NewCardControl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.658824 )
+
+[node name="Panel" type="Panel" parent="NewCardControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -187.0
+margin_top = -128.0
+margin_right = 187.0
+margin_bottom = 128.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="NewCardControl/Panel"]
+margin_left = 16.0
+margin_top = 21.0
+margin_right = 155.0
+margin_bottom = 41.0
+text = "Enter New Card Id :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewCardIdEdit" type="LineEdit" parent="NewCardControl/Panel"]
+margin_left = 168.0
+margin_top = 16.0
+margin_right = 359.0
+margin_bottom = 46.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="NewCardControl/Panel"]
+margin_left = 16.0
+margin_top = 130.0
+margin_right = 359.0
+margin_bottom = 196.0
+custom_colors/font_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+text = "คำแนะนำ : ลองใส่ชื่อย่อของ Set การ์ด ผสมกับตัวเลข
+หรือรวมชื่อของผู้สร้าง ด้วยก็ได้
+เช่น GWIT-01-001, GW01-001-UserName"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="NewCardControl/Panel"]
+margin_left = 16.0
+margin_top = 56.0
+margin_right = 359.0
+margin_bottom = 122.0
+custom_colors/font_color = Color( 1, 0.937255, 0.431373, 1 )
+text = "** Card Id ทุกใบใน Mod และในเกมต้องไม่ซ้ำกัน
+** Card Id เมื่อกำหนดแล้วจะไม่สามารถแก้ไขได้
+หากต้องการแก้ไข ให้ทำการลบ Card Id แล้วสร้างใหม่"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewCardCancelBtn" type="Button" parent="NewCardControl/Panel"]
+margin_left = 219.0
+margin_top = 204.0
+margin_right = 363.0
+margin_bottom = 238.0
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewCardConfirmBtn" type="Button" parent="NewCardControl/Panel"]
+margin_left = 16.0
+margin_top = 204.0
+margin_right = 160.0
+margin_bottom = 238.0
+text = "New Card"
+
+[connection signal="item_selected" from="CreateCardPanel/CardListControl/ModOptionButton" to="." method="_on_ModOptionButton_item_selected"]
+[connection signal="item_selected" from="CreateCardPanel/CardListControl/CardItemList" to="." method="_on_CardItemList_item_selected"]
+[connection signal="pressed" from="CreateCardPanel/CardListControl/NewCardBtn" to="." method="_on_NewCardBtn_pressed"]
+[connection signal="pressed" from="CreateCardPanel/CardListControl/EditFamilyRaceBtn" to="." method="_on_EditFamilyRaceBtn_pressed"]
+[connection signal="pressed" from="CreateCardPanel/CardListControl/DeleteMultiBtn" to="." method="_on_DeleteMultiBtn_pressed"]
+[connection signal="pressed" from="CreateCardPanel/CardListControl/DeleteCardBtn" to="." method="_on_DeleteCardBtn_pressed"]
+[connection signal="pressed" from="CreateCardPanel/CardListControl/DelCancelBtn" to="." method="_on_DelCancelBtn_pressed"]
+[connection signal="pressed" from="CreateCardPanel/CardListControl/DelConfirmBtn" to="." method="_on_DelConfirmBtn_pressed"]
+[connection signal="pressed" from="CreateCardPanel/SaveBtn" to="." method="_on_SaveCardBtn_pressed"]
+[connection signal="pressed" from="CreateCardPanel/CloseBtn" to="." method="_on_CloseCardBtn_pressed"]
+[connection signal="pressed" from="CreateCardPanel/SaveAndCloseBtn" to="." method="_on_SaveAndCloseCardBtn_pressed"]
+[connection signal="pressed" from="EditFamilyRaceControl/Panel/CloseBtn" to="." method="_on_CloseBtn_pressed"]
+[connection signal="pressed" from="EditFamilyRaceControl/Panel/SaveBtn" to="." method="_on_SaveBtn_pressed"]
+[connection signal="pressed" from="EditFamilyRaceControl/Panel/SaveAndCloseBtn" to="." method="_on_SaveAndCloseBtn_pressed"]
+[connection signal="text_changed" from="NewCardControl/Panel/NewCardIdEdit" to="." method="_on_NewCardIdEdit_text_changed"]
+[connection signal="text_entered" from="NewCardControl/Panel/NewCardIdEdit" to="." method="_on_NewCardIdEdit_text_entered"]
+[connection signal="pressed" from="NewCardControl/Panel/NewCardCancelBtn" to="." method="_on_NewCardCancelBtn_pressed"]
+[connection signal="pressed" from="NewCardControl/Panel/NewCardConfirmBtn" to="." method="_on_NewCardConfirmBtn_pressed"]

@@ -1,0 +1,84 @@
+{
+"card": {
+"Card_Array": [ Object(Object,"script":Resource( "res://assets/Script/Data/Card.gd"),"cardId":"gw01-01","cardName":"การ์ดใบที่ 1","cardType":1,"cardFamily":"","cardRace":"","cardElement":0,"cardGrade":0,"cardLevel":0,"cardAtk":0,"cardHP":1,"cardMagicType":0,"cardAreaTurn":0,"cardAlternative":false,"cardRealId":"gw01-01","cardEffect":[  ],"cardDescription":"","cardFlavor":"","cardArtist":"","cardEffectText":[  ],"cardPic":Object(Image,"resource_local_to_scene":false,"resource_name":"","data":{
+"data": PoolByteArray(  ),
+"format": "Lum8",
+"height": 0,
+"mipmaps": false,
+"width": 0
+},"script":null)
+,"cardPicTexture":Object(ImageTexture,"resource_local_to_scene":false,"resource_name":"","flags":7,"storage":0,"lossy_quality":0.7,"flags":7,"image":null,"size":Vector2( 0, 0 ),"script":null)
+,"cardSetBox":"","cardRarity":0)
+, Object(Object,"script":Resource( "res://assets/Script/Data/Card.gd"),"cardId":"gw02-02","cardName":"กะหล่ำปลีร่ำไห้","cardType":0,"cardFamily":"","cardRace":"","cardElement":0,"cardGrade":0,"cardLevel":0,"cardAtk":0,"cardHP":1,"cardMagicType":0,"cardAreaTurn":0,"cardAlternative":false,"cardRealId":"gw02-02","cardEffect":[  ],"cardDescription":"","cardFlavor":"","cardArtist":"","cardEffectText":[  ],"cardPic":Object(Image,"resource_local_to_scene":false,"resource_name":"","data":{
+"data": PoolByteArray(  ),
+"format": "Lum8",
+"height": 0,
+"mipmaps": false,
+"width": 0
+},"script":null)
+,"cardPicTexture":Object(ImageTexture,"resource_local_to_scene":false,"resource_name":"","flags":7,"storage":0,"lossy_quality":0.7,"flags":7,"image":null,"size":Vector2( 0, 0 ),"script":null)
+,"cardSetBox":"","cardRarity":0)
+, Object(Object,"script":Resource( "res://assets/Script/Data/Card.gd"),"cardId":"03","cardName":"","cardType":0,"cardFamily":"","cardRace":"","cardElement":0,"cardGrade":0,"cardLevel":0,"cardAtk":0,"cardHP":1,"cardMagicType":0,"cardAreaTurn":0,"cardAlternative":false,"cardRealId":"03","cardEffect":[  ],"cardDescription":"","cardFlavor":"","cardArtist":"","cardEffectText":[  ],"cardPic":Object(Image,"resource_local_to_scene":false,"resource_name":"","data":{
+"data": PoolByteArray(  ),
+"format": "Lum8",
+"height": 0,
+"mipmaps": false,
+"width": 0
+},"script":null)
+,"cardPicTexture":Object(ImageTexture,"resource_local_to_scene":false,"resource_name":"","flags":7,"storage":0,"lossy_quality":0.7,"flags":7,"image":null,"size":Vector2( 0, 0 ),"script":null)
+,"cardSetBox":"","cardRarity":0)
+, Object(Object,"script":Resource( "res://assets/Script/Data/Card.gd"),"cardId":"04","cardName":"","cardType":0,"cardFamily":"","cardRace":"","cardElement":0,"cardGrade":0,"cardLevel":0,"cardAtk":0,"cardHP":1,"cardMagicType":0,"cardAreaTurn":0,"cardAlternative":false,"cardRealId":"04","cardEffect":[  ],"cardDescription":"","cardFlavor":"","cardArtist":"","cardEffectText":[  ],"cardPic":Object(Image,"resource_local_to_scene":false,"resource_name":"","data":{
+"data": PoolByteArray(  ),
+"format": "Lum8",
+"height": 0,
+"mipmaps": false,
+"width": 0
+},"script":null)
+,"cardPicTexture":Object(ImageTexture,"resource_local_to_scene":false,"resource_name":"","flags":7,"storage":0,"lossy_quality":0.7,"flags":7,"image":null,"size":Vector2( 0, 0 ),"script":null)
+,"cardSetBox":"","cardRarity":0)
+, Object(Object,"script":Resource( "res://assets/Script/Data/Card.gd"),"cardId":"06","cardName":"","cardType":0,"cardFamily":"","cardRace":"","cardElement":0,"cardGrade":0,"cardLevel":0,"cardAtk":0,"cardHP":1,"cardMagicType":0,"cardAreaTurn":0,"cardAlternative":false,"cardRealId":"06","cardEffect":[  ],"cardDescription":"","cardFlavor":"","cardArtist":"","cardEffectText":[  ],"cardPic":Object(Image,"resource_local_to_scene":false,"resource_name":"","data":{
+"data": PoolByteArray(  ),
+"format": "Lum8",
+"height": 0,
+"mipmaps": false,
+"width": 0
+},"script":null)
+,"cardPicTexture":Object(ImageTexture,"resource_local_to_scene":false,"resource_name":"","flags":7,"storage":0,"lossy_quality":0.7,"flags":7,"image":null,"size":Vector2( 0, 0 ),"script":null)
+,"cardSetBox":"","cardRarity":0)
+, Object(Object,"script":Resource( "res://assets/Script/Data/Card.gd"),"cardId":"555","cardName":"","cardType":0,"cardFamily":"","cardRace":"","cardElement":0,"cardGrade":0,"cardLevel":0,"cardAtk":0,"cardHP":1,"cardMagicType":0,"cardAreaTurn":0,"cardAlternative":false,"cardRealId":"555","cardEffect":[  ],"cardDescription":"","cardFlavor":"","cardArtist":"","cardEffectText":[  ],"cardPic":Object(Image,"resource_local_to_scene":false,"resource_name":"","data":{
+"data": PoolByteArray(  ),
+"format": "Lum8",
+"height": 0,
+"mipmaps": false,
+"width": 0
+},"script":null)
+,"cardPicTexture":Object(ImageTexture,"resource_local_to_scene":false,"resource_name":"","flags":7,"storage":0,"lossy_quality":0.7,"flags":7,"image":null,"size":Vector2( 0, 0 ),"script":null)
+,"cardSetBox":"","cardRarity":0)
+, Object(Object,"script":Resource( "res://assets/Script/Data/Card.gd"),"cardId":"3232","cardName":"323232","cardType":0,"cardFamily":"","cardRace":"","cardElement":0,"cardGrade":0,"cardLevel":0,"cardAtk":0,"cardHP":1,"cardMagicType":0,"cardAreaTurn":0,"cardAlternative":false,"cardRealId":"3232","cardEffect":[  ],"cardDescription":"","cardFlavor":"","cardArtist":"","cardEffectText":[  ],"cardPic":Object(Image,"resource_local_to_scene":false,"resource_name":"","data":{
+"data": PoolByteArray(  ),
+"format": "Lum8",
+"height": 0,
+"mipmaps": false,
+"width": 0
+},"script":null)
+,"cardPicTexture":Object(ImageTexture,"resource_local_to_scene":false,"resource_name":"","flags":7,"storage":0,"lossy_quality":0.7,"flags":7,"image":null,"size":Vector2( 0, 0 ),"script":null)
+,"cardSetBox":"","cardRarity":0)
+ ],
+"Family": [ "123", "123444" ],
+"Race": [ "555", "มังกรมายา", "มังกรเขียว" ]
+},
+"info": {
+"Author": "jojo741963",
+"Description": "รวมการ์ดชุดพื้นฐานต่าง ๆ ของเกม ชุดที่ 1",
+"Id": "std-cards-set-01",
+"LastDateEdit": "2021-08-07 00:01:12",
+"Name": "Standard Card Set 1",
+"TypeState": 0,
+"Version": "1.0.0"
+},
+"mod_enable": false,
+"story": {
+"Id": "",
+"Name": ""
+}
+}

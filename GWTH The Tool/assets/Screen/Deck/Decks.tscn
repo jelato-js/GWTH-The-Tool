@@ -1,0 +1,330 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/Theme/new_theme-01.tres" type="Theme" id=1]
+[ext_resource path="res://Mods/std-cards-set-01/pics/st-00001.png" type="Texture" id=2]
+[ext_resource path="res://assets/Screen/Deck/Decks.gd" type="Script" id=3]
+[ext_resource path="res://assets/Screen/Deck/AllCardBtn.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/Screen/Deck/CardInDeckBtn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/Screen/Deck/CardInDeckGridContainer.gd" type="Script" id=7]
+[ext_resource path="res://assets/Screen/Deck/AllCardContainer.gd" type="Script" id=8]
+
+[node name="Decks" type="Control" groups=[
+"DeckRoot",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HelpPanel" type="Panel" parent="."]
+margin_right = 320.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="HelpPanel"]
+margin_right = 248.0
+margin_bottom = 347.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Label" type="Label" parent="HelpPanel"]
+margin_left = 8.0
+margin_top = 352.0
+margin_right = 312.0
+margin_bottom = 592.0
+text = "CardName
+[ Race1 / Race2 ] [*0]
+ATK 99 HP 99
+เอฟเฟค : "
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_left = 328.0
+margin_top = 8.0
+margin_right = 1020.0
+margin_bottom = 128.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Deck Manager" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="DeckListMenu" type="MenuButton" parent="TabContainer/Deck Manager"]
+margin_left = 100.0
+margin_top = 4.0
+margin_right = 276.0
+margin_bottom = 30.0
+focus_mode = 2
+text = "<Load Deck File>"
+flat = false
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TabContainer/Deck Manager"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 44.0
+margin_bottom = 30.0
+text = "Deck:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="TabContainer/Deck Manager"]
+margin_left = 4.0
+margin_top = 46.0
+margin_right = 90.0
+margin_bottom = 72.0
+text = "Deck Name:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveAsBtn" type="Button" parent="TabContainer/Deck Manager"]
+margin_left = 284.0
+margin_top = 46.0
+margin_right = 434.0
+margin_bottom = 72.0
+text = "Save As New Deck"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveBtn" type="Button" parent="TabContainer/Deck Manager"]
+margin_left = 284.0
+margin_top = 4.0
+margin_right = 354.0
+margin_bottom = 30.0
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeleteBtn" type="Button" parent="TabContainer/Deck Manager"]
+margin_left = 364.0
+margin_top = 4.0
+margin_right = 434.0
+margin_bottom = 30.0
+text = "Delete"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeckNameLineEdit" type="LineEdit" parent="TabContainer/Deck Manager"]
+margin_left = 100.0
+margin_top = 44.0
+margin_right = 276.0
+margin_bottom = 74.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SortBtn" type="Button" parent="TabContainer/Deck Manager"]
+margin_left = 452.0
+margin_top = 47.0
+margin_right = 522.0
+margin_bottom = 73.0
+text = "Sort"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShuffleBtn" type="Button" parent="TabContainer/Deck Manager"]
+margin_left = 532.0
+margin_top = 47.0
+margin_right = 602.0
+margin_bottom = 73.0
+text = "Shuffle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClearBtn" type="Button" parent="TabContainer/Deck Manager"]
+margin_left = 612.0
+margin_top = 47.0
+margin_right = 682.0
+margin_bottom = 73.0
+text = "Clear"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardDeckNumLabel" type="Label" parent="TabContainer/Deck Manager"]
+margin_left = 452.0
+margin_right = 684.0
+margin_bottom = 43.0
+text = "Card Num: 40/40
+H: 99 M: 99 A: 99"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Card Search" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="DeckPanel" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.501961 )
+margin_left = 328.0
+margin_top = 136.0
+margin_right = 764.0
+margin_bottom = 596.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DeckPanel"]
+margin_right = 436.0
+margin_bottom = 368.0
+rect_clip_content = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardInDeckGridContainer" type="GridContainer" parent="DeckPanel/ScrollContainer" groups=[
+"DeckContainer",
+]]
+margin_right = 436.0
+margin_bottom = 368.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 8
+script = ExtResource( 7 )
+
+[node name="CardInDeckBtn" parent="DeckPanel/ScrollContainer/CardInDeckGridContainer" instance=ExtResource( 6 )]
+
+[node name="CardInDeckBtn2" parent="DeckPanel/ScrollContainer/CardInDeckGridContainer" instance=ExtResource( 6 )]
+margin_left = 55.0
+margin_right = 106.0
+
+[node name="CardInDeckBtn3" parent="DeckPanel/ScrollContainer/CardInDeckGridContainer" instance=ExtResource( 6 )]
+margin_left = 110.0
+margin_right = 161.0
+
+[node name="CardInDeckBtn4" parent="DeckPanel/ScrollContainer/CardInDeckGridContainer" instance=ExtResource( 6 )]
+margin_left = 165.0
+margin_right = 216.0
+
+[node name="CardInDeckBtn5" parent="DeckPanel/ScrollContainer/CardInDeckGridContainer" instance=ExtResource( 6 )]
+margin_left = 220.0
+margin_right = 271.0
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="DeckPanel"]
+visible = false
+margin_top = 384.0
+margin_right = 436.0
+margin_bottom = 456.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="DeckPanel/ScrollContainer2"]
+margin_right = 436.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 8
+
+[node name="CardInDeckBtn" parent="DeckPanel/ScrollContainer2/GridContainer" instance=ExtResource( 6 )]
+
+[node name="CardInDeckBtn2" parent="DeckPanel/ScrollContainer2/GridContainer" instance=ExtResource( 6 )]
+margin_left = 55.0
+margin_right = 106.0
+
+[node name="CardInDeckBtn3" parent="DeckPanel/ScrollContainer2/GridContainer" instance=ExtResource( 6 )]
+margin_left = 110.0
+margin_right = 161.0
+
+[node name="CardInDeckBtn4" parent="DeckPanel/ScrollContainer2/GridContainer" instance=ExtResource( 6 )]
+margin_left = 165.0
+margin_right = 216.0
+
+[node name="CardInDeckBtn5" parent="DeckPanel/ScrollContainer2/GridContainer" instance=ExtResource( 6 )]
+margin_left = 220.0
+margin_right = 271.0
+
+[node name="CardInDeckBtn6" parent="DeckPanel/ScrollContainer2/GridContainer" instance=ExtResource( 6 )]
+margin_left = 275.0
+margin_right = 326.0
+
+[node name="CardInDeckBtn7" parent="DeckPanel/ScrollContainer2/GridContainer" instance=ExtResource( 6 )]
+margin_left = 330.0
+margin_right = 381.0
+
+[node name="CardInDeckBtn8" parent="DeckPanel/ScrollContainer2/GridContainer" instance=ExtResource( 6 )]
+margin_left = 385.0
+margin_right = 436.0
+
+[node name="AllCardPanel" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.501961 )
+margin_left = 776.0
+margin_top = 136.0
+margin_right = 1024.0
+margin_bottom = 596.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="AllCardPanel"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 240.0
+margin_bottom = 456.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllCardContainer" type="VBoxContainer" parent="AllCardPanel/ScrollContainer" groups=[
+"AllCardContainer",
+]]
+margin_right = 232.0
+margin_bottom = 448.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 8 )
+
+[node name="AllCardBtn" parent="AllCardPanel/ScrollContainer/AllCardContainer" instance=ExtResource( 5 )]
+margin_right = 232.0
+
+[node name="AllCardBtn2" parent="AllCardPanel/ScrollContainer/AllCardContainer" instance=ExtResource( 5 )]
+margin_top = 74.0
+margin_right = 232.0
+margin_bottom = 144.0
+
+[node name="AllCardBtn3" parent="AllCardPanel/ScrollContainer/AllCardContainer" instance=ExtResource( 5 )]
+margin_top = 148.0
+margin_right = 232.0
+margin_bottom = 218.0
+
+[node name="AllCardBtn4" parent="AllCardPanel/ScrollContainer/AllCardContainer" instance=ExtResource( 5 )]
+margin_top = 222.0
+margin_right = 232.0
+margin_bottom = 292.0
+
+[connection signal="pressed" from="TabContainer/Deck Manager/SaveAsBtn" to="." method="_on_SaveAsBtn_pressed"]
+[connection signal="pressed" from="TabContainer/Deck Manager/SaveBtn" to="." method="_on_SaveBtn_pressed"]
+[connection signal="pressed" from="TabContainer/Deck Manager/DeleteBtn" to="." method="_on_DeleteBtn_pressed"]
+[connection signal="text_changed" from="TabContainer/Deck Manager/DeckNameLineEdit" to="." method="_on_DeckNameLineEdit_text_changed"]
+[connection signal="pressed" from="TabContainer/Deck Manager/SortBtn" to="." method="_on_SortBtn_pressed"]
+[connection signal="pressed" from="TabContainer/Deck Manager/ShuffleBtn" to="." method="_on_ShuffleBtn_pressed"]
+[connection signal="pressed" from="TabContainer/Deck Manager/ClearBtn" to="." method="_on_ClearBtn_pressed"]

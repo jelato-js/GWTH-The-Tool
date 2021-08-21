@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/Screen/CreateCard/EditEffect/EffectContainer.gd" type="Script" id=2]
+
+[node name="EffectContainer" type="VBoxContainer"]
+margin_right = 648.0
+margin_bottom = 455.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 8
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddEffectBtn" type="Button" parent="."]
+margin_right = 648.0
+margin_bottom = 20.0
+text = "Add Effect +"
+
+[connection signal="pressed" from="AddEffectBtn" to="." method="_on_AddEffectBtn_pressed"]

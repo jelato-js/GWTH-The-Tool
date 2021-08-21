@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Theme/new_theme-01.tres" type="Theme" id=1]
+[ext_resource path="res://Mods/std-cards-set-01/pics/st-00001.png" type="Texture" id=2]
+[ext_resource path="res://assets/Screen/Deck/AllCardBtn.gd" type="Script" id=3]
+
+[node name="AllCardBtn" type="Button"]
+margin_right = 200.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 200, 70 )
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 256.0
+margin_bottom = 72.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+margin_right = 51.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 51, 70 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
+margin_left = 55.0
+margin_right = 256.0
+margin_bottom = 72.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "CardName
+Race1/Race2 [*0]
+ATK 99 HP 99"
+
+[connection signal="gui_input" from="." to="." method="_on_AllCardBtn_gui_input"]

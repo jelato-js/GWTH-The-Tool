@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/Screen/CreateCard/EditTextEffect/TextEffectContainer.gd" type="Script" id=1]
+
+[node name="TextEffectContainer" type="VBoxContainer"]
+margin_right = 322.0
+margin_bottom = 437.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddTextEffectBtn" type="Button" parent="."]
+margin_right = 322.0
+margin_bottom = 20.0
+text = "Add Text+"
+
+[connection signal="pressed" from="AddTextEffectBtn" to="." method="_on_AddTextEffectBtn_pressed"]

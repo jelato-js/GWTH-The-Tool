@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/Screen/CreateCard/EditEffect/ArgsBox.gd" type="Script" id=1]
+
+[node name="ArgsContainer" type="HBoxContainer"]
+margin_right = 136.0
+margin_bottom = 24.0
+size_flags_horizontal = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IdLabel" type="Label" parent="."]
+margin_top = 5.0
+margin_right = 40.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 40, 0 )
+text = "Id 1 :"
+
+[node name="ArgsEdit" type="LineEdit" parent="."]
+margin_left = 44.0
+margin_right = 102.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 50, 0 )
+size_flags_horizontal = 3
+
+[node name="RemoveArgsBtn" type="Button" parent="."]
+margin_left = 106.0
+margin_right = 136.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 30, 0 )
+text = "x"
+
+[connection signal="text_changed" from="ArgsEdit" to="." method="_on_ArgsEdit_text_changed"]
+[connection signal="pressed" from="RemoveArgsBtn" to="." method="_on_RemoveArgsBtn_pressed"]

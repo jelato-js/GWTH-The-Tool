@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/message-pop-alert.mp3-7f2ea339ea03c53020988fc703e74890.mp3str"
+
+[deps]
+
+source_file="res://assets/Audio/SE/message-pop-alert.mp3"
+dest_files=[ "res://.import/message-pop-alert.mp3-7f2ea339ea03c53020988fc703e74890.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,140 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "HBoxContainer",
+"class": "ActBox",
+"language": "GDScript",
+"path": "res://assets/Screen/CreateCard/EditEffect/ActionBox.gd"
+}, {
+"base": "VBoxContainer",
+"class": "ActContainer",
+"language": "GDScript",
+"path": "res://assets/Screen/CreateCard/EditEffect/ActionContainer.gd"
+}, {
+"base": "VBoxContainer",
+"class": "AllConditionContainer",
+"language": "GDScript",
+"path": "res://assets/Screen/CreateCard/EditEffect/ConditionContainer.gd"
+}, {
+"base": "HBoxContainer",
+"class": "ArgsBox",
+"language": "GDScript",
+"path": "res://assets/Screen/CreateCard/EditEffect/ArgsBox.gd"
+}, {
+"base": "VBoxContainer",
+"class": "ArgsContainer",
+"language": "GDScript",
+"path": "res://assets/Screen/CreateCard/EditEffect/ArgsContainer.gd"
+}, {
+"base": "Object",
+"class": "CardData",
+"language": "GDScript",
+"path": "res://assets/Script/Data/Card.gd"
+}, {
+"base": "HBoxContainer",
+"class": "ConditionBox",
+"language": "GDScript",
+"path": "res://assets/Screen/CreateCard/EditEffect/ConditionBox.gd"
+}, {
+"base": "HBoxContainer",
+"class": "CostBox",
+"language": "GDScript",
+"path": "res://assets/Screen/CreateCard/EditEffect/CostBox.gd"
+}, {
+"base": "VBoxContainer",
+"class": "CostContainer",
+"language": "GDScript",
+"path": "res://assets/Screen/CreateCard/EditEffect/CostContainer.gd"
+}, {
+"base": "HBoxContainer",
+"class": "EffectBox",
+"language": "GDScript",
+"path": "res://assets/Screen/CreateCard/EditEffect/EffectBox.gd"
+}, {
+"base": "VBoxContainer",
+"class": "EffectContainer",
+"language": "GDScript",
+"path": "res://assets/Screen/CreateCard/EditEffect/EffectContainer.gd"
+}, {
+"base": "Object",
+"class": "EffectData",
+"language": "GDScript",
+"path": "res://assets/Script/Data/EffectData.gd"
+}, {
+"base": "Control",
+"class": "FamilyRaceEdit",
+"language": "GDScript",
+"path": "res://assets/Screen/CreateCard/EditFamilyAndRace/FamilyRaceEdit.gd"
+}, {
+"base": "Control",
+"class": "ModClass",
+"language": "GDScript",
+"path": "res://assets/Screen/Mods.gd"
+} ]
+_global_script_class_icons={
+"ActBox": "",
+"ActContainer": "",
+"AllConditionContainer": "",
+"ArgsBox": "",
+"ArgsContainer": "",
+"CardData": "",
+"ConditionBox": "",
+"CostBox": "",
+"CostContainer": "",
+"EffectBox": "",
+"EffectContainer": "",
+"EffectData": "",
+"FamilyRaceEdit": "",
+"ModClass": ""
+}
+
+[application]
+
+config/name="GWTH The Tool"
+run/main_scene="res://assets/Screen/Lobby.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Game="*res://assets/Script/Game.gd"
+PopupLayer="*res://assets/Screen/AutoLoad/PopupLayer.tscn"
+Chat="*res://assets/Screen/AutoLoad/Chat.tscn"
+SoundControl="*res://assets/Screen/AutoLoad/SoundControl.tscn"
+EnumData="*res://assets/Script/Data/EnumData.gd"
+CardDatabase="*res://assets/Script/Data/CardDatabase.gd"
+Mods="*res://assets/Screen/Mods.tscn"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/size/resizable=false
+
+[input]
+
+ui_click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+ui_right_click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

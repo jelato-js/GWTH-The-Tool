@@ -1,0 +1,132 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Theme/new_theme-01.tres" type="Theme" id=1]
+[ext_resource path="res://assets/Screen/AutoLoad/Chat.gd" type="Script" id=2]
+
+[node name="Chat" type="CanvasLayer"]
+layer = 15
+script = ExtResource( 2 )
+
+[node name="ChatControl" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChatEnter" type="LineEdit" parent="ChatControl"]
+margin_left = 320.0
+margin_top = 570.0
+margin_right = 1024.0
+margin_bottom = 600.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ChatControl"]
+visible = false
+margin_left = 320.0
+margin_top = 448.0
+margin_right = 1024.0
+margin_bottom = 600.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ChatControl"]
+margin_left = 320.0
+margin_top = 384.0
+margin_right = 1024.0
+margin_bottom = 568.0
+follow_focus = true
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChatContainer" type="VBoxContainer" parent="ChatControl/ScrollContainer"]
+margin_top = 184.0
+margin_right = 704.0
+margin_bottom = 184.0
+size_flags_horizontal = 3
+size_flags_vertical = 10
+theme = ExtResource( 1 )
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChatLabel" type="Label" parent="ChatControl/ScrollContainer/ChatContainer"]
+visible = false
+margin_right = 704.0
+margin_bottom = 20.0
+text = "Name : ข้อความ1"
+
+[node name="SystemChat1" type="Label" parent="ChatControl/ScrollContainer/ChatContainer"]
+visible = false
+margin_top = 24.0
+margin_right = 704.0
+margin_bottom = 44.0
+custom_colors/font_color = Color( 0.121569, 0.913725, 0.247059, 1 )
+text = "** Name ได้เข้ามาห้องแล้ว **"
+
+[node name="SystemChat2" type="Label" parent="ChatControl/ScrollContainer/ChatContainer"]
+visible = false
+margin_top = 48.0
+margin_right = 704.0
+margin_bottom = 68.0
+custom_colors/font_color = Color( 0.972549, 0.956863, 0.0745098, 1 )
+text = "** Name ได้ออกจากห้องไปแล้ว **"
+
+[node name="ChatLabel4" type="Label" parent="ChatControl/ScrollContainer/ChatContainer"]
+visible = false
+margin_top = 72.0
+margin_right = 692.0
+margin_bottom = 92.0
+text = "Name : ข้อความ4"
+
+[node name="ChatLabel5" type="Label" parent="ChatControl/ScrollContainer/ChatContainer"]
+visible = false
+margin_top = 96.0
+margin_right = 692.0
+margin_bottom = 116.0
+text = "Name : ข้อความ5"
+
+[node name="ChatLabel6" type="Label" parent="ChatControl/ScrollContainer/ChatContainer"]
+visible = false
+margin_top = 120.0
+margin_right = 692.0
+margin_bottom = 140.0
+text = "Name : ข้อความ6"
+
+[node name="ChatLabel7" type="Label" parent="ChatControl/ScrollContainer/ChatContainer"]
+visible = false
+margin_top = 144.0
+margin_right = 692.0
+margin_bottom = 164.0
+text = "Name : ข้อความ7"
+
+[node name="ChatLabel8" type="Label" parent="ChatControl/ScrollContainer/ChatContainer"]
+visible = false
+margin_top = 168.0
+margin_right = 692.0
+margin_bottom = 188.0
+text = "Name : ข้อความ8"
+
+[node name="ChatLabel9" type="Label" parent="ChatControl/ScrollContainer/ChatContainer"]
+visible = false
+margin_top = 192.0
+margin_right = 692.0
+margin_bottom = 212.0
+text = "Name : ข้อความ9"
+
+[node name="ChatLabel10" type="Label" parent="ChatControl/ScrollContainer/ChatContainer"]
+visible = false
+margin_top = 216.0
+margin_right = 692.0
+margin_bottom = 236.0
+text = "Name : ข้อความ10"
+
+[connection signal="text_entered" from="ChatControl/ChatEnter" to="." method="_on_ChatEnter_text_entered"]
