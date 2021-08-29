@@ -1,0 +1,647 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/Theme/new_theme-01.tres" type="Theme" id=1]
+[ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/CardConditionControl.gd" type="Script" id=2]
+[ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/CardConditionItem.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/CommandPanelControl.gd" type="Script" id=4]
+[ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/ConditionType_buttongroup.tres" type="ButtonGroup" id=5]
+[ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/ConditionTypeOf_buttongroup.tres" type="ButtonGroup" id=6]
+[ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/VariableCondidion_buttongroup.tres" type="ButtonGroup" id=7]
+
+[node name="CardConditionControl" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.658824 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardCondPanel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -352.0
+margin_top = -222.0
+margin_right = 352.0
+margin_bottom = 222.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CardCondPanel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -48.0
+margin_top = 16.0
+margin_right = 51.0
+margin_bottom = 36.0
+text = "CardCondition"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CardCondPanel"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 688.0
+margin_bottom = 386.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardCondPanel/ScrollContainer"]
+margin_right = 672.0
+margin_bottom = 338.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CardConditionItem" parent="CardCondPanel/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
+visible = false
+
+[node name="AddCardCondBtn" type="Button" parent="CardCondPanel/ScrollContainer/VBoxContainer"]
+margin_right = 672.0
+margin_bottom = 26.0
+text = "Add CardCondition +"
+
+[node name="CancelBtn" type="Button" parent="CardCondPanel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = -48.0
+margin_right = -17.0
+margin_bottom = -14.0
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveBtn" type="Button" parent="CardCondPanel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -256.0
+margin_top = -48.0
+margin_right = -145.0
+margin_bottom = -14.0
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CommandPanelControl" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CommandPanelControl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.658824 )
+
+[node name="AddCondPanel" type="Panel" parent="CommandPanelControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = -242.0
+margin_right = 288.0
+margin_bottom = 242.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CommandPanelControl/AddCondPanel"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 148.0
+margin_bottom = 36.0
+text = "Add CardCondition"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionalCheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = -48.0
+margin_right = 104.0
+margin_bottom = -20.0
+text = "Optional"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CancelBtn" type="Button" parent="CommandPanelControl/AddCondPanel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = -48.0
+margin_right = -17.0
+margin_bottom = -14.0
+text = "Cancel"
+
+[node name="SaveBtn" type="Button" parent="CommandPanelControl/AddCondPanel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -256.0
+margin_top = -48.0
+margin_right = -145.0
+margin_bottom = -14.0
+text = "Save"
+
+[node name="TabContainer" type="TabContainer" parent="CommandPanelControl/AddCondPanel"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 560.0
+margin_bottom = 420.0
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1" type="Tabs" parent="CommandPanelControl/AddCondPanel/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Content" type="VBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/1"]
+margin_right = 522.0
+margin_bottom = 212.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerCheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content"]
+margin_right = 522.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_vertical = 0
+group = ExtResource( 6 )
+text = "Player"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Variable" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content"]
+margin_top = 36.0
+margin_right = 522.0
+margin_bottom = 174.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable"]
+margin_right = 20.0
+margin_bottom = 138.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable"]
+margin_left = 24.0
+margin_right = 144.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_vertical = 0
+group = ExtResource( 5 )
+text = "Variable"
+
+[node name="Value" type="VBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable"]
+margin_left = 148.0
+margin_right = 522.0
+margin_bottom = 138.0
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Number" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value"]
+margin_right = 374.0
+margin_bottom = 26.0
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/Number"]
+margin_right = 250.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 250, 0 )
+size_flags_horizontal = 0
+text = "HP"
+items = [ "HP", null, false, 0, null, "MaxHP", null, false, 1, null, "Number of Card in Deck", null, false, 2, null, "Number of Card in Hand", null, false, 3, null, "Number of Card in Field", null, false, 4, null, "Number of Hollow have", null, false, 5, null, "Number of Area have", null, false, 6, null ]
+selected = 0
+
+[node name="Label" type="Label" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/Number"]
+margin_left = 258.0
+margin_top = 3.0
+margin_right = 275.0
+margin_bottom = 23.0
+text = "is "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OperatorValue" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/Number"]
+margin_left = 283.0
+margin_right = 343.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 60, 0 )
+size_flags_horizontal = 0
+text = ">"
+items = [ ">", null, false, 0, null, "<", null, false, 1, null, ">=", null, false, 2, null, "<=", null, false, 3, null, "==", null, false, 4, null, "!=", null, false, 5, null ]
+selected = 0
+
+[node name="Constant" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value"]
+margin_top = 34.0
+margin_right = 374.0
+margin_bottom = 64.0
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/Constant"]
+margin_right = 120.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 120, 0 )
+group = ExtResource( 7 )
+text = "Constant"
+
+[node name="SpinBox" type="SpinBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/Constant"]
+margin_left = 124.0
+margin_right = 210.0
+margin_bottom = 30.0
+
+[node name="Opponent" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value"]
+margin_top = 72.0
+margin_right = 374.0
+margin_bottom = 100.0
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/Opponent"]
+margin_right = 120.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 120, 0 )
+group = ExtResource( 7 )
+text = "Opponent"
+
+[node name="OptionButton" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/Opponent"]
+margin_left = 124.0
+margin_right = 374.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 250, 0 )
+text = "HP"
+items = [ "HP", null, false, 0, null, "MaxHP", null, false, 1, null, "Number of Card in Deck", null, false, 2, null, "Number of Card in Hand", null, false, 3, null, "Number of Card in Field", null, false, 4, null, "Number of Hollow have", null, false, 5, null, "Number of Area have", null, false, 6, null ]
+selected = 0
+
+[node name="LM" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value"]
+margin_top = 108.0
+margin_right = 374.0
+margin_bottom = 138.0
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/LM"]
+margin_right = 150.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 150, 0 )
+group = ExtResource( 7 )
+text = "Local Memory"
+
+[node name="LineEdit" type="LineEdit" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/LM"]
+margin_left = 154.0
+margin_right = 314.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 160, 0 )
+placeholder_text = "variableName"
+
+[node name="Have" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content"]
+margin_top = 182.0
+margin_right = 522.0
+margin_bottom = 212.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Have"]
+margin_right = 20.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Have"]
+margin_left = 24.0
+margin_right = 144.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_vertical = 0
+group = ExtResource( 5 )
+text = "Have"
+
+[node name="LineEdit" type="LineEdit" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Have"]
+margin_left = 148.0
+margin_right = 348.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 200, 0 )
+placeholder_text = "cardID"
+
+[node name="Label" type="Label" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Have"]
+margin_left = 352.0
+margin_top = 5.0
+margin_right = 427.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 75, 0 )
+text = "in control"
+align = 2
+
+[node name="2" type="Tabs" parent="CommandPanelControl/AddCondPanel/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Content" type="VBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/2"]
+margin_right = 522.0
+margin_bottom = 320.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardCheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content"]
+margin_right = 522.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_vertical = 0
+group = ExtResource( 6 )
+text = "Card"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Id" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content"]
+margin_top = 36.0
+margin_right = 522.0
+margin_bottom = 66.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Id"]
+margin_right = 20.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Id"]
+margin_left = 24.0
+margin_right = 144.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_vertical = 0
+group = ExtResource( 5 )
+text = "Id"
+
+[node name="LineEdit" type="LineEdit" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Id"]
+margin_left = 148.0
+margin_right = 348.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 200, 0 )
+placeholder_text = "cardID"
+
+[node name="Variable" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content"]
+margin_top = 74.0
+margin_right = 522.0
+margin_bottom = 176.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable"]
+margin_right = 20.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable"]
+margin_left = 24.0
+margin_right = 144.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_vertical = 0
+group = ExtResource( 5 )
+text = "Variable"
+
+[node name="Value" type="VBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable"]
+margin_left = 148.0
+margin_right = 462.0
+margin_bottom = 102.0
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Number" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable/Value"]
+margin_right = 314.0
+margin_bottom = 26.0
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable/Value/Number"]
+margin_right = 200.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 200, 0 )
+text = "HP"
+items = [ "HP", null, false, 0, null, "MaxHP", null, false, 1, null, "ไอเทม 2", null, false, 2, null ]
+selected = 0
+
+[node name="Label" type="Label" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable/Value/Number"]
+margin_left = 208.0
+margin_top = 3.0
+margin_right = 225.0
+margin_bottom = 23.0
+text = "is "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OperatorValue" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable/Value/Number"]
+margin_left = 233.0
+margin_right = 293.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 60, 0 )
+size_flags_horizontal = 0
+text = ">"
+items = [ ">", null, false, 0, null, "<", null, false, 1, null, ">=", null, false, 2, null, "<=", null, false, 3, null, "==", null, false, 4, null, "!=", null, false, 5, null ]
+selected = 0
+
+[node name="Constant" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable/Value"]
+margin_top = 34.0
+margin_right = 314.0
+margin_bottom = 64.0
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable/Value/Constant"]
+margin_right = 150.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 150, 0 )
+group = ExtResource( 7 )
+text = "Constant"
+
+[node name="SpinBox" type="SpinBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable/Value/Constant"]
+margin_left = 154.0
+margin_right = 240.0
+margin_bottom = 30.0
+
+[node name="LM" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable/Value"]
+margin_top = 72.0
+margin_right = 314.0
+margin_bottom = 102.0
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable/Value/LM"]
+margin_right = 150.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 150, 0 )
+group = ExtResource( 7 )
+text = "Local Memory"
+
+[node name="LineEdit" type="LineEdit" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable/Value/LM"]
+margin_left = 154.0
+margin_right = 314.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 160, 0 )
+placeholder_text = "variableName"
+
+[node name="Family" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content"]
+margin_top = 184.0
+margin_right = 522.0
+margin_bottom = 212.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Family"]
+margin_right = 20.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Family"]
+margin_left = 24.0
+margin_right = 144.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_vertical = 0
+group = ExtResource( 5 )
+text = "Family"
+
+[node name="OptionButton" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Family"]
+margin_left = 148.0
+margin_right = 348.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="Race" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content"]
+margin_top = 220.0
+margin_right = 522.0
+margin_bottom = 248.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Race"]
+margin_right = 20.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Race"]
+margin_left = 24.0
+margin_right = 144.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_vertical = 0
+group = ExtResource( 5 )
+text = "Race"
+
+[node name="OptionButton" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Race"]
+margin_left = 148.0
+margin_right = 348.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="Element" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content"]
+margin_top = 256.0
+margin_right = 522.0
+margin_bottom = 284.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Element"]
+margin_right = 20.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Element"]
+margin_left = 24.0
+margin_right = 144.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_vertical = 0
+group = ExtResource( 5 )
+text = "Element"
+
+[node name="OptionButton" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Element"]
+margin_left = 148.0
+margin_right = 348.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="Special" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content"]
+margin_top = 292.0
+margin_right = 522.0
+margin_bottom = 320.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Special"]
+margin_right = 20.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Special"]
+margin_left = 24.0
+margin_right = 144.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_vertical = 0
+group = ExtResource( 5 )
+text = "Special"
+
+[node name="OptionButton" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Special"]
+margin_left = 148.0
+margin_right = 348.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 200, 0 )
+
+[connection signal="pressed" from="CardCondPanel/ScrollContainer/VBoxContainer/AddCardCondBtn" to="." method="_on_AddCardCondBtn_pressed"]

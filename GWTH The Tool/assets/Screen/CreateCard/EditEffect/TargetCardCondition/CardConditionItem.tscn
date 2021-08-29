@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/CardConditionItem.gd" type="Script" id=1]
+
+[node name="CardConditionItem" type="HBoxContainer"]
+margin_right = 672.0
+margin_bottom = 28.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_right = 100.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 100, 0 )
+text = "Optional"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 104.0
+margin_top = 7.0
+margin_right = 545.0
+margin_bottom = 21.0
+size_flags_horizontal = 3
+text = "cond..."
+
+[node name="EditBtn" type="Button" parent="."]
+margin_left = 549.0
+margin_right = 593.0
+margin_bottom = 28.0
+size_flags_horizontal = 8
+text = "Edit !"
+
+[node name="RemoveBtn" type="Button" parent="."]
+margin_left = 597.0
+margin_right = 672.0
+margin_bottom = 28.0
+size_flags_horizontal = 8
+text = "Remove x"
+
+[connection signal="pressed" from="CheckBox" to="." method="_on_CheckBox_pressed"]
+[connection signal="pressed" from="EditBtn" to="." method="_on_EditBtn_pressed"]
+[connection signal="pressed" from="RemoveBtn" to="." method="_on_RemoveBtn_pressed"]

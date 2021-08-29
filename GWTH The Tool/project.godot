@@ -34,6 +34,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://assets/Screen/CreateCard/EditEffect/ArgsContainer.gd"
 }, {
+"base": "Node",
+"class": "CardCondition",
+"language": "GDScript",
+"path": "res://assets/Script/Data/EffectData/CardConditionData.gd"
+}, {
+"base": "HBoxContainer",
+"class": "CardConditionItem",
+"language": "GDScript",
+"path": "res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/CardConditionItem.gd"
+}, {
 "base": "Object",
 "class": "CardData",
 "language": "GDScript",
@@ -78,6 +88,11 @@ _global_script_classes=[ {
 "class": "ModClass",
 "language": "GDScript",
 "path": "res://assets/Screen/Mods.gd"
+}, {
+"base": "Node",
+"class": "Target",
+"language": "GDScript",
+"path": "res://assets/Script/Data/EffectData/TargetData.gd"
 } ]
 _global_script_class_icons={
 "ActBox": "",
@@ -85,6 +100,8 @@ _global_script_class_icons={
 "AllConditionContainer": "",
 "ArgsBox": "",
 "ArgsContainer": "",
+"CardCondition": "",
+"CardConditionItem": "",
 "CardData": "",
 "ConditionBox": "",
 "CostBox": "",
@@ -93,7 +110,8 @@ _global_script_class_icons={
 "EffectContainer": "",
 "EffectData": "",
 "FamilyRaceEdit": "",
-"ModClass": ""
+"ModClass": "",
+"Target": ""
 }
 
 [application]
