@@ -579,3 +579,6 @@ visible = false
 
 [connection signal="item_selected" from="EditTargetPanel/PanelContainer/ContentContainer/MethodContainer/MethodOptionBtn" to="." method="_on_MethodOptionBtn_item_selected"]
 [connection signal="value_changed" from="EditTargetPanel/PanelContainer/ContentContainer/MethodContainer/FromContainer/Value/ConstantContainer/SpinBox" to="." method="_FromSpinBoxValue_Changed"]
+[connection signal="pressed" from="EditTargetPanel/CancelBtn" to="." method="_on_CancelBtn_pressed"]
+[connection signal="pressed" from="EditTargetPanel/SaveBtn" to="." method="_on_SaveBtn_pressed"]
+[connection signal="pressed" from="EditTargetPanel/TargetCondBtn" to="." method="_on_TargetCondBtn_pressed"]

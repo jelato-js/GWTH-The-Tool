@@ -14,6 +14,13 @@ onready var ToLMCheckBox : CheckBox = $EditTargetPanel/PanelContainer/ContentCon
 onready var ToLMLineEdit : LineEdit = $EditTargetPanel/PanelContainer/ContentContainer/MethodContainer/ToContainer/Value/LocalMemContainer/LineEdit
 onready var ToSpecialCheckBox : CheckBox = $EditTargetPanel/PanelContainer/ContentContainer/MethodContainer/ToContainer/Value/SpecialContainer/CheckBox
 
+onready var SelfCheckBox: CheckBox = $EditTargetPanel/PanelContainer/ContentContainer/TargetContainer/CheckBox
+onready var Player1CheckBox: CheckBox = $EditTargetPanel/PanelContainer/ContentContainer/TargetContainer/CheckBox2
+onready var Player2CheckBox: CheckBox = $EditTargetPanel/PanelContainer/ContentContainer/TargetContainer/CheckBox3
+onready var HollowCheckBox: CheckBox = $EditTargetPanel/PanelContainer/ContentContainer/TargetContainer/CheckBox4
+onready var MagicCheckBox: CheckBox = $EditTargetPanel/PanelContainer/ContentContainer/TargetContainer/CheckBox5
+onready var AreaCheckBox: CheckBox = $EditTargetPanel/PanelContainer/ContentContainer/TargetContainer/CheckBox6
+
 onready var AnywhereCheckBox : CheckBox = $EditTargetPanel/PanelContainer/ContentContainer/WhereContainer/CheckBox
 onready var FieldCheckBox : CheckBox = $EditTargetPanel/PanelContainer/ContentContainer/WhereContainer/Field/CheckBox
 onready var FieldP1CheckBox : CheckBox = $EditTargetPanel/PanelContainer/ContentContainer/WhereContainer/Field/CheckBoxP1
@@ -46,6 +53,7 @@ enum TargetWhere {
 
 var target:Target = Target.new()
 
+onready var CardCondItemList: ItemList = $EditTargetPanel/ScrollContainer/ItemList
 onready var CardConditionControl : Control = $CardConditionControl
 
 # Called when the node enters the scene tree for the first time.
@@ -64,6 +72,10 @@ func _ready():
 	ToConstantCheckBox.connect("pressed", self, "_FromToNodeEnable")
 	ToLMCheckBox.connect("pressed", self, "_FromToNodeEnable")
 	
+	var TargetNode = get_tree().get_nodes_in_group("TargetValue")
+	for checkBox in TargetNode:
+		checkBox.connect("pressed", self, "_WhereEnableTargetUpdate")
+	
 	AnywhereCheckBox.connect("pressed", self, "_WhereNodeEnable", [TargetWhere.Anywhere, AnywhereCheckBox])
 	FieldCheckBox.connect("pressed", self, "_WhereNodeEnable", [TargetWhere.Field, FieldCheckBox])
 	FieldP1CheckBox.connect("pressed", self, "_WhereNodeEnable", [TargetWhere.Field, FieldP1CheckBox, TargetWhere.P1])
@@ -78,6 +90,7 @@ func _ready():
 	AbyssP1CheckBox.connect("pressed", self, "_WhereNodeEnable", [TargetWhere.Abyss, AbyssP1CheckBox, TargetWhere.P1])
 	AbyssP2CheckBox.connect("pressed", self, "_WhereNodeEnable", [TargetWhere.Abyss, AbyssP2CheckBox, TargetWhere.P2])
 	
+	CardConditionControl.connect("saveCardCond", self, "_saveCardCond")
 
 func NodeEnableControl(enable: bool, type: int):
 	var groupName = TargetType.keys()[type]
@@ -86,6 +99,8 @@ func NodeEnableControl(enable: bool, type: int):
 		if node is CheckBox or node is OptionButton:
 			node.disabled = not enable
 		if node is CheckBox and node.group == null and type != TargetType.WhereValue:
+			node.pressed = enable
+		if type == TargetType.WhereValue and not enable:
 			node.pressed = enable
 		if node is SpinBox or node is LineEdit:
 			node.editable = enable
@@ -109,6 +124,7 @@ func _on_MethodOptionBtn_item_selected(index):
 	if index != EnumData.TargetMethod.No_Target:
 		NodeEnableControl(true, TargetType.TargetValue)
 		NodeEnableControl(true, TargetType.WhereValue)
+	_WhereEnableTargetUpdate()
 	target.method = index
 	_FromToNodeEnable()
 
@@ -120,6 +136,12 @@ func _FromToNodeEnable():
 
 func _FromSpinBoxValue_Changed(value: float):
 	ToConstantSpinBox.min_value = value
+
+func _WhereEnableTargetUpdate():
+	if HollowCheckBox.pressed or MagicCheckBox.pressed or AreaCheckBox.pressed:
+		NodeEnableControl(true, TargetType.WhereValue)
+	else:
+		NodeEnableControl(false, TargetType.WhereValue)
 
 func _WhereNodeEnable(type: int, node: CheckBox, of = null):
 	var button_pressed = node.pressed
@@ -173,4 +195,64 @@ func _WhereNodeEnable(type: int, node: CheckBox, of = null):
 			anywhere = false
 			break
 	AnywhereCheckBox.pressed = anywhere
-	
+
+func _on_TargetCondBtn_pressed():
+	CardConditionControl.set_cardcondition_data(target.targetCond)
+
+func _saveCardCond(cardCondArray: Array):
+	target.targetCond = cardCondArray
+	refreshCardCondList()
+
+func refreshCardCondList():
+	CardCondItemList.clear()
+	for cardCond in target.targetCond:
+		CardCondItemList.add_item(cardCond.get_help_text(true))
+
+func _on_CancelBtn_pressed():
+	hide()
+
+func _on_SaveBtn_pressed():
+	target.method = methodOptionBtn.selected
+	if target.method == EnumData.TargetMethod.Choose or target.method == EnumData.TargetMethod.Random:
+		if FromConstantCheckBox.pressed:
+			target.amount.fromValue.type = EnumData.NumberValueType.Constant
+			target.amount.fromValue.value = FromConstantSpinBox.value
+		if FromLMCheckBox.pressed:
+			target.amount.fromValue.type = EnumData.NumberValueType.LM
+			target.amount.fromValue.variableName = FromLMLineEdit.text
+		if FromSpecialCheckBox.pressed:
+			target.amount.fromValue.type = EnumData.NumberValueType.Special
+	if target.method == EnumData.TargetMethod.Random:
+		if FromConstantCheckBox.pressed:
+			target.amount.toValue.type = EnumData.NumberValueType.Constant
+			target.amount.toValue.value = FromConstantSpinBox.value
+		if FromLMCheckBox.pressed:
+			target.amount.toValue.type = EnumData.NumberValueType.LM
+			target.amount.toValue.variableName = FromLMLineEdit.text
+		if FromSpecialCheckBox.pressed:
+			target.amount.toValue.type = EnumData.NumberValueType.Special
+	if target.method != EnumData.TargetMethod.No_Target:
+		target.target.user = SelfCheckBox.pressed
+		target.target.player1 = Player1CheckBox.pressed
+		target.target.player2 = Player2CheckBox.pressed
+		target.target.hollow = HollowCheckBox.pressed
+		target.target.magic = MagicCheckBox.pressed
+		target.target.area = AreaCheckBox.pressed
+	if target.target.hollow or target.target.magic or target.target.area:
+		if FieldCheckBox.pressed:
+			target.where.field.check = FieldCheckBox.pressed
+			target.where.field.of.player1 = FieldP1CheckBox.pressed
+			target.where.field.of.player2 = FieldP2CheckBox.pressed
+		if HandCheckBox.pressed:
+			target.where.hand.check = HandCheckBox.pressed
+			target.where.hand.of.player1 = HandP1CheckBox.pressed
+			target.where.hand.of.player2 = HandP2CheckBox.pressed
+		if DeckCheckBox.pressed:
+			target.where.deck.check = DeckCheckBox.pressed
+			target.where.deck.of.player1 = DeckP1CheckBox.pressed
+			target.where.deck.of.player2 = DeckP2CheckBox.pressed
+		if AbyssCheckBox.pressed:
+			target.where.abyss.check = AbyssCheckBox.pressed
+			target.where.abyss.of.player1 = AbyssP1CheckBox.pressed
+			target.where.abyss.of.player2 = AbyssP2CheckBox.pressed
+	print(var2str(target))

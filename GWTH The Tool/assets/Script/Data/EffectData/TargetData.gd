@@ -2,14 +2,14 @@ extends Node
 class_name Target
 
 class AmountNumber:
-	var type = EnumData.NumberValueType
-	var value: int
-	var variableName: String
-	var special: int
+	var type: int
+	var value: int = 0
+	var variableName: String = ""
+	var special: int = 0
 
 class AmountValue:
-	var fromValue: AmountNumber
-	var toValue: AmountNumber
+	var fromValue: AmountNumber = AmountNumber.new()
+	var toValue: AmountNumber = AmountNumber.new()
 
 class TargetWhat:
 	var user: bool
@@ -20,22 +20,22 @@ class TargetWhat:
 	var area: bool
 
 class TargetWhereOf:
-	var player1: bool
-	var player2: bool
+	var player1: bool = false
+	var player2: bool = false
 class TargetWhere:
-	var check: bool
-	var of: TargetWhereOf
+	var check: bool = false
+	var of: TargetWhereOf = TargetWhereOf.new()
 class Where:
-	var field: TargetWhere
-	var hand: TargetWhere
-	var deck: TargetWhere
-	var abyss: TargetWhere
-	var outer: bool
+	var field: TargetWhere = TargetWhere.new()
+	var hand: TargetWhere = TargetWhere.new()
+	var deck: TargetWhere = TargetWhere.new()
+	var abyss: TargetWhere = TargetWhere.new()
+	var outer: bool = false
 
 var method: int
-var amount: AmountValue
-var target: TargetWhat
-var where: Where
+var amount: AmountValue = AmountValue.new()
+var target: TargetWhat = TargetWhat.new()
+var where: Where = Where.new()
 
 var targetCond: Array
 

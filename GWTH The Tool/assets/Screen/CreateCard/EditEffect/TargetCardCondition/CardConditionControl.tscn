@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/Theme/new_theme-01.tres" type="Theme" id=1]
 [ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/CardConditionControl.gd" type="Script" id=2]
 [ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/CardConditionItem.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/CommandPanelControl.gd" type="Script" id=4]
 [ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/ConditionType_buttongroup.tres" type="ButtonGroup" id=5]
-[ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/ConditionTypeOf_buttongroup.tres" type="ButtonGroup" id=6]
-[ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/VariableCondidion_buttongroup.tres" type="ButtonGroup" id=7]
+[ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/CVariableCondidion_buttongroup.tres" type="ButtonGroup" id=6]
+[ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/PConditionType_buttongroup.tres" type="ButtonGroup" id=7]
+[ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/CConditionType_buttongroup.tres" type="ButtonGroup" id=8]
+[ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/PVariableCondidion_buttongroup.tres" type="ButtonGroup" id=9]
 
 [node name="CardConditionControl" type="Control"]
 anchor_right = 1.0
@@ -30,9 +32,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -352.0
+margin_left = -448.0
 margin_top = -222.0
-margin_right = 352.0
+margin_right = 448.0
 margin_bottom = 222.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -50,14 +52,14 @@ text = "CardCondition"
 [node name="ScrollContainer" type="ScrollContainer" parent="CardCondPanel"]
 margin_left = 16.0
 margin_top = 48.0
-margin_right = 688.0
+margin_right = 880.0
 margin_bottom = 386.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CardCondPanel/ScrollContainer"]
-margin_right = 672.0
+margin_right = 864.0
 margin_bottom = 338.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -66,7 +68,7 @@ size_flags_vertical = 3
 visible = false
 
 [node name="AddCardCondBtn" type="Button" parent="CardCondPanel/ScrollContainer/VBoxContainer"]
-margin_right = 672.0
+margin_right = 864.0
 margin_bottom = 26.0
 text = "Add CardCondition +"
 
@@ -99,6 +101,7 @@ __meta__ = {
 }
 
 [node name="CommandPanelControl" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
@@ -167,6 +170,9 @@ margin_top = -48.0
 margin_right = -145.0
 margin_bottom = -14.0
 text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TabContainer" type="TabContainer" parent="CommandPanelControl/AddCondPanel"]
 margin_left = 16.0
@@ -179,7 +185,6 @@ __meta__ = {
 }
 
 [node name="1" type="Tabs" parent="CommandPanelControl/AddCondPanel/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -197,12 +202,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayerCheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content"]
+[node name="PlayerCheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content" groups=[
+"RadioButton",
+]]
 margin_right = 522.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 100, 0 )
 size_flags_vertical = 0
-group = ExtResource( 6 )
+group = ExtResource( 5 )
 text = "Player"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -211,29 +218,31 @@ __meta__ = {
 [node name="Variable" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content"]
 margin_top = 36.0
 margin_right = 522.0
-margin_bottom = 174.0
+margin_bottom = 210.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Control" type="Control" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable"]
 margin_right = 20.0
-margin_bottom = 138.0
+margin_bottom = 174.0
 rect_min_size = Vector2( 20, 0 )
 
-[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable"]
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable" groups=[
+"RadioButton",
+]]
 margin_left = 24.0
 margin_right = 144.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 120, 0 )
 size_flags_vertical = 0
-group = ExtResource( 5 )
+group = ExtResource( 7 )
 text = "Variable"
 
 [node name="Value" type="VBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable"]
 margin_left = 148.0
 margin_right = 522.0
-margin_bottom = 138.0
+margin_bottom = 174.0
 custom_constants/separation = 8
 __meta__ = {
 "_edit_use_anchors_": false
@@ -281,11 +290,13 @@ margin_top = 34.0
 margin_right = 374.0
 margin_bottom = 64.0
 
-[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/Constant"]
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/Constant" groups=[
+"RadioButton",
+]]
 margin_right = 120.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 120, 0 )
-group = ExtResource( 7 )
+group = ExtResource( 9 )
 text = "Constant"
 
 [node name="SpinBox" type="SpinBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/Constant"]
@@ -293,16 +304,41 @@ margin_left = 124.0
 margin_right = 210.0
 margin_bottom = 30.0
 
-[node name="Opponent" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value"]
+[node name="Player" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value"]
 margin_top = 72.0
 margin_right = 374.0
 margin_bottom = 100.0
 
-[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/Opponent"]
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/Player" groups=[
+"RadioButton",
+]]
 margin_right = 120.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 120, 0 )
-group = ExtResource( 7 )
+group = ExtResource( 9 )
+text = "Player"
+
+[node name="OptionButton" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/Player"]
+margin_left = 124.0
+margin_right = 374.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 250, 0 )
+text = "HP"
+items = [ "HP", null, false, 0, null, "MaxHP", null, false, 1, null, "Number of Card in Deck", null, false, 2, null, "Number of Card in Hand", null, false, 3, null, "Number of Card in Field", null, false, 4, null, "Number of Hollow have", null, false, 5, null, "Number of Area have", null, false, 6, null ]
+selected = 0
+
+[node name="Opponent" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value"]
+margin_top = 108.0
+margin_right = 374.0
+margin_bottom = 136.0
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/Opponent" groups=[
+"RadioButton",
+]]
+margin_right = 120.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 120, 0 )
+group = ExtResource( 9 )
 text = "Opponent"
 
 [node name="OptionButton" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/Opponent"]
@@ -315,15 +351,17 @@ items = [ "HP", null, false, 0, null, "MaxHP", null, false, 1, null, "Number of 
 selected = 0
 
 [node name="LM" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value"]
-margin_top = 108.0
+margin_top = 144.0
 margin_right = 374.0
-margin_bottom = 138.0
+margin_bottom = 174.0
 
-[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/LM"]
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/LM" groups=[
+"RadioButton",
+]]
 margin_right = 150.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 0 )
-group = ExtResource( 7 )
+group = ExtResource( 9 )
 text = "Local Memory"
 
 [node name="LineEdit" type="LineEdit" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/LM"]
@@ -334,9 +372,9 @@ rect_min_size = Vector2( 160, 0 )
 placeholder_text = "variableName"
 
 [node name="Have" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content"]
-margin_top = 182.0
+margin_top = 218.0
 margin_right = 522.0
-margin_bottom = 212.0
+margin_bottom = 248.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -346,13 +384,15 @@ margin_right = 20.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 20, 0 )
 
-[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Have"]
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Have" groups=[
+"RadioButton",
+]]
 margin_left = 24.0
 margin_right = 144.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 120, 0 )
 size_flags_vertical = 0
-group = ExtResource( 5 )
+group = ExtResource( 7 )
 text = "Have"
 
 [node name="LineEdit" type="LineEdit" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Have"]
@@ -372,6 +412,7 @@ text = "in control"
 align = 2
 
 [node name="2" type="Tabs" parent="CommandPanelControl/AddCondPanel/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -389,12 +430,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CardCheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content"]
+[node name="CardCheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content" groups=[
+"RadioButton",
+]]
 margin_right = 522.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 100, 0 )
 size_flags_vertical = 0
-group = ExtResource( 6 )
+group = ExtResource( 5 )
 text = "Card"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -413,13 +456,15 @@ margin_right = 20.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 20, 0 )
 
-[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Id"]
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Id" groups=[
+"RadioButton",
+]]
 margin_left = 24.0
 margin_right = 144.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 120, 0 )
 size_flags_vertical = 0
-group = ExtResource( 5 )
+group = ExtResource( 8 )
 text = "Id"
 
 [node name="LineEdit" type="LineEdit" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Id"]
@@ -442,13 +487,15 @@ margin_right = 20.0
 margin_bottom = 102.0
 rect_min_size = Vector2( 20, 0 )
 
-[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable"]
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable" groups=[
+"RadioButton",
+]]
 margin_left = 24.0
 margin_right = 144.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 120, 0 )
 size_flags_vertical = 0
-group = ExtResource( 5 )
+group = ExtResource( 8 )
 text = "Variable"
 
 [node name="Value" type="VBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable"]
@@ -501,11 +548,13 @@ margin_top = 34.0
 margin_right = 314.0
 margin_bottom = 64.0
 
-[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable/Value/Constant"]
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable/Value/Constant" groups=[
+"RadioButton",
+]]
 margin_right = 150.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 0 )
-group = ExtResource( 7 )
+group = ExtResource( 6 )
 text = "Constant"
 
 [node name="SpinBox" type="SpinBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable/Value/Constant"]
@@ -518,11 +567,13 @@ margin_top = 72.0
 margin_right = 314.0
 margin_bottom = 102.0
 
-[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable/Value/LM"]
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable/Value/LM" groups=[
+"RadioButton",
+]]
 margin_right = 150.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 0 )
-group = ExtResource( 7 )
+group = ExtResource( 6 )
 text = "Local Memory"
 
 [node name="LineEdit" type="LineEdit" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable/Value/LM"]
@@ -545,13 +596,15 @@ margin_right = 20.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 20, 0 )
 
-[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Family"]
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Family" groups=[
+"RadioButton",
+]]
 margin_left = 24.0
 margin_right = 144.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 120, 0 )
 size_flags_vertical = 0
-group = ExtResource( 5 )
+group = ExtResource( 8 )
 text = "Family"
 
 [node name="OptionButton" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Family"]
@@ -573,13 +626,15 @@ margin_right = 20.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 20, 0 )
 
-[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Race"]
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Race" groups=[
+"RadioButton",
+]]
 margin_left = 24.0
 margin_right = 144.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 120, 0 )
 size_flags_vertical = 0
-group = ExtResource( 5 )
+group = ExtResource( 8 )
 text = "Race"
 
 [node name="OptionButton" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Race"]
@@ -601,13 +656,15 @@ margin_right = 20.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 20, 0 )
 
-[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Element"]
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Element" groups=[
+"RadioButton",
+]]
 margin_left = 24.0
 margin_right = 144.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 120, 0 )
 size_flags_vertical = 0
-group = ExtResource( 5 )
+group = ExtResource( 8 )
 text = "Element"
 
 [node name="OptionButton" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Element"]
@@ -629,13 +686,15 @@ margin_right = 20.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 20, 0 )
 
-[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Special"]
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Special" groups=[
+"RadioButton",
+]]
 margin_left = 24.0
 margin_right = 144.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 120, 0 )
 size_flags_vertical = 0
-group = ExtResource( 5 )
+group = ExtResource( 8 )
 text = "Special"
 
 [node name="OptionButton" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Special"]
@@ -645,3 +704,8 @@ margin_bottom = 28.0
 rect_min_size = Vector2( 200, 0 )
 
 [connection signal="pressed" from="CardCondPanel/ScrollContainer/VBoxContainer/AddCardCondBtn" to="." method="_on_AddCardCondBtn_pressed"]
+[connection signal="pressed" from="CardCondPanel/CancelBtn" to="." method="_on_CancelBtn_pressed"]
+[connection signal="pressed" from="CardCondPanel/SaveBtn" to="." method="_on_SaveBtn_pressed"]
+[connection signal="pressed" from="CommandPanelControl/AddCondPanel/OptionalCheckBox" to="CommandPanelControl" method="_on_OptionalCheckBox_pressed"]
+[connection signal="pressed" from="CommandPanelControl/AddCondPanel/CancelBtn" to="CommandPanelControl" method="_on_CancelBtn_pressed"]
+[connection signal="pressed" from="CommandPanelControl/AddCondPanel/SaveBtn" to="CommandPanelControl" method="_on_SaveBtn_pressed"]
