@@ -1,7 +1,7 @@
 extends VBoxContainer
 class_name EffectContainer
 
-onready var EffectBox = preload("res://assets/Screen/CreateCard/EditEffect/EffectBox.tscn")
+onready var EffectBox = preload("res://assets/Screen/CreateCard/EditEffect/EffectBox_old.tscn")
 
 var all_effect_node = []
 

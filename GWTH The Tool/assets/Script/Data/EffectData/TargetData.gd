@@ -1,12 +1,6 @@
 extends Node
 class_name Target
 
-class AmountNumber:
-	var type: int
-	var value: int = 0
-	var variableName: String = ""
-	var special: int = 0
-
 class AmountValue:
 	var fromValue: AmountNumber = AmountNumber.new()
 	var toValue: AmountNumber = AmountNumber.new()

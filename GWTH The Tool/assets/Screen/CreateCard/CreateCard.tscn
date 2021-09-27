@@ -16,8 +16,8 @@ __meta__ = {
 [node name="CreateCardPanel" type="Panel" parent="."]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 1008.0
-margin_bottom = 584.0
+margin_right = 1264.0
+margin_bottom = 704.0
 theme = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -25,7 +25,7 @@ __meta__ = {
 
 [node name="CardListControl" type="Control" parent="CreateCardPanel"]
 margin_right = 320.0
-margin_bottom = 568.0
+margin_bottom = 688.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -47,7 +47,7 @@ __meta__ = {
 margin_left = 16.0
 margin_top = 56.0
 margin_right = 304.0
-margin_bottom = 448.0
+margin_bottom = 576.0
 items = [ "001 : CardName", null, false, "002 : CardName", null, false ]
 __meta__ = {
 "_edit_use_anchors_": false
@@ -55,16 +55,16 @@ __meta__ = {
 
 [node name="NewCardBtn" type="Button" parent="CreateCardPanel/CardListControl"]
 margin_left = 16.0
-margin_top = 456.0
+margin_top = 584.0
 margin_right = 304.0
-margin_bottom = 482.0
+margin_bottom = 610.0
 text = "New Card"
 
 [node name="EditFamilyRaceBtn" type="Button" parent="CreateCardPanel/CardListControl"]
 margin_left = 16.0
-margin_top = 488.0
+margin_top = 616.0
 margin_right = 304.0
-margin_bottom = 514.0
+margin_bottom = 642.0
 text = "Edit Family&Race"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -72,9 +72,9 @@ __meta__ = {
 
 [node name="DeleteMultiBtn" type="Button" parent="CreateCardPanel/CardListControl"]
 margin_left = 16.0
-margin_top = 520.0
+margin_top = 648.0
 margin_right = 156.0
-margin_bottom = 546.0
+margin_bottom = 674.0
 text = "Delete Multiple"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -82,9 +82,9 @@ __meta__ = {
 
 [node name="DeleteCardBtn" type="Button" parent="CreateCardPanel/CardListControl"]
 margin_left = 164.0
-margin_top = 520.0
+margin_top = 648.0
 margin_right = 304.0
-margin_bottom = 546.0
+margin_bottom = 674.0
 rect_pivot_offset = Vector2( 140, 0 )
 text = "Delete Card"
 __meta__ = {
@@ -117,36 +117,49 @@ __meta__ = {
 [node name="EditCardTabContainer" parent="CreateCardPanel" instance=ExtResource( 2 )]
 
 [node name="SaveBtn" type="Button" parent="CreateCardPanel"]
-margin_left = 576.0
-margin_top = 520.0
-margin_right = 701.0
-margin_bottom = 546.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -416.0
+margin_top = -48.0
+margin_right = -291.0
+margin_bottom = -22.0
 text = "Save"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CloseBtn" type="Button" parent="CreateCardPanel"]
-margin_left = 712.0
-margin_top = 520.0
-margin_right = 837.0
-margin_bottom = 546.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -280.0
+margin_top = -48.0
+margin_right = -155.0
+margin_bottom = -22.0
 text = "Close"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SaveAndCloseBtn" type="Button" parent="CreateCardPanel"]
-margin_left = 848.0
-margin_top = 520.0
-margin_right = 973.0
-margin_bottom = 546.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -141.0
+margin_top = -48.0
+margin_right = -16.0
+margin_bottom = -22.0
 text = "Save & Close"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="EditFamilyRaceControl" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -204,12 +217,16 @@ margin_bottom = 308.0
 text = "Save & Close"
 
 [node name="FamilyRaceEdit" parent="EditFamilyRaceControl" instance=ExtResource( 4 )]
+margin_left = 400.0
+margin_top = 227.0
+margin_right = 640.0
+margin_bottom = 459.0
 
 [node name="FamilyRaceEdit2" parent="EditFamilyRaceControl" instance=ExtResource( 4 )]
-margin_left = 519.0
-margin_top = 166.0
-margin_right = 759.0
-margin_bottom = 398.0
+margin_left = 647.0
+margin_top = 228.0
+margin_right = 887.0
+margin_bottom = 460.0
 typeState = 1
 
 [node name="NewCardControl" type="Control" parent="."]

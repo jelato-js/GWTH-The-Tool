@@ -3,7 +3,8 @@ class_name CardCondition
 
 enum ConditionType {
 	Player,
-	Card
+	Card,
+	Battler
 }
 
 enum PlayerCondidionType {
@@ -17,6 +18,9 @@ enum CardCondidionType {
 	Race,
 	Element,
 	Special
+}
+enum BattlerCondidionType {
+	State
 }
 class VariableCondidion:
 	var number1: int = 0
@@ -37,6 +41,8 @@ var race: String = ""
 var element: int
 var special: int
 
+var state_value: StateValue = StateValue.new()
+
 var optional: bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -54,13 +60,13 @@ func get_help_text(show_optional: bool = false) -> String:
 				PlayerCondidionType.Variable:
 					text += "%s %s " % [EnumData.PlayerAttributeCond.keys()[variableCond.number1], EnumData.OperatorValue()[variableCond.operator]]
 					match(variableCond.checkType):
-						EnumData.NumberValueType.Constant:
+						AmountNumber.NumberValueType.Constant:
 							text += "%s" % variableCond.number2
-						EnumData.NumberValueType.Player:
+						AmountNumber.NumberValueType.Player:
 							text += "%s" % EnumData.PlayerAttributeCond.keys()[variableCond.number2]
-						EnumData.NumberValueType.Opponent:
+						AmountNumber.NumberValueType.Opponent:
 							text += "Opponent's %s" % EnumData.PlayerAttributeCond.keys()[variableCond.number2]
-						EnumData.NumberValueType.LM:
+						AmountNumber.NumberValueType.LM:
 							text += "LM:%s" % variableCond.variableName
 				PlayerCondidionType.Have:
 					text += "have %s in control" % cardId
@@ -72,9 +78,9 @@ func get_help_text(show_optional: bool = false) -> String:
 				CardCondidionType.Variable:
 					text += "%s %s " % [EnumData.CardAttributeCond.keys()[variableCond.number1], EnumData.OperatorValue()[variableCond.operator]]
 					match(variableCond.checkType):
-						EnumData.NumberValueType.Constant:
+						AmountNumber.NumberValueType.Constant:
 							text += "%s" % variableCond.number2
-						EnumData.NumberValueType.LM:
+						AmountNumber.NumberValueType.LM:
 							text += "LM:%s" % variableCond.variableName
 				CardCondidionType.Family:
 					text += "is %s" % family
@@ -84,4 +90,14 @@ func get_help_text(show_optional: bool = false) -> String:
 					text += "is %s" % CardData.CARD_ELEMENT.keys()[element]
 				CardCondidionType.Special:
 					text += "is %s" % EnumData.CardSpecialCond.keys()[special]
+		ConditionType.Battler:
+			text += "Battler | "
+			text += "have [%s] state" % StateValue.StateId.keys()[state_value.id]
+			match(state_value.option_type):
+				StateValue.StateOptionType.BuffId:
+					text += " with [%s]" % StateValue.BuffCardState.keys()[state_value.option_id]
+				StateValue.StateOptionType.CardType:
+					text += " with [%s]" % CardData.CARD_TYPE.keys()[state_value.option_id]
+				StateValue.StateOptionType.AttackType:
+					text += " with [%s]" % EnumData.AttackType.keys()[state_value.option_id]
 	return text

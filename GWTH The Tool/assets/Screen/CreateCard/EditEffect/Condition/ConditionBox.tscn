@@ -1,0 +1,358 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/Theme/new_theme-01.tres" type="Theme" id=1]
+
+[node name="Condition" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.501961 )
+
+[node name="EditCondPanel" type="Panel" parent="."]
+margin_left = 192.0
+margin_top = 128.0
+margin_right = 1088.0
+margin_bottom = 576.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="EditCondPanel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -56.0
+margin_top = 16.0
+margin_right = 54.0
+margin_bottom = 36.0
+text = "Edit Condition"
+align = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="EditCondPanel"]
+margin_left = 16.0
+margin_top = 40.0
+margin_right = 880.0
+margin_bottom = 384.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditCondPanel/ScrollContainer"]
+margin_right = 864.0
+margin_bottom = 344.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="EditCondPanel/ScrollContainer/VBoxContainer"]
+margin_right = 864.0
+margin_bottom = 26.0
+text = "Add Condition +"
+
+[node name="CancelBtn" type="Button" parent="EditCondPanel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = -48.0
+margin_right = -17.0
+margin_bottom = -14.0
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveBtn" type="Button" parent="EditCondPanel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -256.0
+margin_top = -48.0
+margin_right = -145.0
+margin_bottom = -14.0
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CommandCondEffControl" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="CommandCondEffControl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.501961 )
+
+[node name="MainCommandCondEffPanel" type="Panel" parent="CommandCondEffControl"]
+margin_right = 384.0
+margin_bottom = 576.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CommandCondEffControl/MainCommandCondEffPanel"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 121.0
+margin_bottom = 36.0
+text = "Add Condrition"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="CommandCondEffControl/MainCommandCondEffPanel"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 368.0
+margin_bottom = 512.0
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="General" type="VBoxContainer" parent="CommandCondEffControl/MainCommandCondEffPanel/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Button" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/TabContainer/General"]
+visible = false
+margin_right = 344.0
+margin_bottom = 26.0
+text = "No Condition"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/TabContainer/General"]
+margin_right = 344.0
+margin_bottom = 26.0
+text = "When Summoned"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/TabContainer/General"]
+margin_top = 30.0
+margin_right = 344.0
+margin_bottom = 56.0
+text = "Active Once PerTurn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/TabContainer/General"]
+margin_top = 60.0
+margin_right = 344.0
+margin_bottom = 86.0
+text = "Active Twice PerTurn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button11" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/TabContainer/General"]
+margin_top = 90.0
+margin_right = 344.0
+margin_bottom = 116.0
+text = "Active Once PerCard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button12" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/TabContainer/General"]
+margin_top = 120.0
+margin_right = 344.0
+margin_bottom = 146.0
+text = "Active Twice PerCard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button13" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/TabContainer/General"]
+margin_top = 150.0
+margin_right = 344.0
+margin_bottom = 176.0
+text = "Active Once PerGame"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button14" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/TabContainer/General"]
+margin_top = 180.0
+margin_right = 344.0
+margin_bottom = 206.0
+text = "Active Twice PerGame"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button7" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/TabContainer/General"]
+margin_top = 210.0
+margin_right = 344.0
+margin_bottom = 236.0
+text = "When Card Attribute..."
+
+[node name="Button8" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/TabContainer/General"]
+margin_top = 240.0
+margin_right = 344.0
+margin_bottom = 266.0
+text = "When Have X State..."
+
+[node name="Battle" type="VBoxContainer" parent="CommandCondEffControl/MainCommandCondEffPanel/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Button5" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/TabContainer/Battle"]
+margin_right = 344.0
+margin_bottom = 26.0
+text = "When Attack"
+
+[node name="Button6" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/TabContainer/Battle"]
+margin_top = 30.0
+margin_right = 344.0
+margin_bottom = 56.0
+text = "When Defense"
+
+[node name="Button10" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/TabContainer/Battle"]
+margin_top = 60.0
+margin_right = 344.0
+margin_bottom = 86.0
+text = "When Destroyed"
+
+[node name="LM" type="VBoxContainer" parent="CommandCondEffControl/MainCommandCondEffPanel/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Button13" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/TabContainer/LM"]
+margin_right = 344.0
+margin_bottom = 26.0
+text = "Check_Target_LM_Race"
+
+[node name="VBox" type="VBoxContainer" parent="CommandCondEffControl/MainCommandCondEffPanel"]
+margin_left = 32.0
+margin_top = 408.0
+margin_right = 384.0
+margin_bottom = 474.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/VBox"]
+visible = false
+margin_right = 352.0
+margin_bottom = 26.0
+text = "No Condition"
+
+[node name="Button2" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/VBox"]
+visible = false
+margin_right = 352.0
+margin_bottom = 26.0
+text = "When Summoned"
+
+[node name="Button3" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/VBox"]
+visible = false
+margin_right = 352.0
+margin_bottom = 26.0
+text = "Active Once PerTurn"
+
+[node name="Button4" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/VBox"]
+margin_right = 352.0
+margin_bottom = 26.0
+text = "When Have Card X With Y in Z ..."
+
+[node name="Button5" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/VBox"]
+visible = false
+margin_top = 30.0
+margin_right = 352.0
+margin_bottom = 56.0
+text = "When Attack"
+
+[node name="Button6" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/VBox"]
+visible = false
+margin_top = 60.0
+margin_right = 352.0
+margin_bottom = 86.0
+text = "When Defense"
+
+[node name="Button7" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/VBox"]
+visible = false
+margin_top = 30.0
+margin_right = 352.0
+margin_bottom = 56.0
+text = "When LevelMax"
+
+[node name="Button8" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/VBox"]
+visible = false
+margin_top = 60.0
+margin_right = 352.0
+margin_bottom = 86.0
+text = "Have X State ..."
+
+[node name="Button9" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/VBox"]
+margin_top = 30.0
+margin_right = 352.0
+margin_bottom = 56.0
+text = "When Have X Number of Y in Z ..."
+
+[node name="Button10" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/VBox"]
+visible = false
+margin_top = 120.0
+margin_right = 352.0
+margin_bottom = 146.0
+text = "When Destroyed"
+
+[node name="Button11" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/VBox"]
+visible = false
+margin_top = 210.0
+margin_right = 352.0
+margin_bottom = 236.0
+text = "Active Once PerCard"
+
+[node name="Button12" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/VBox"]
+visible = false
+margin_top = 60.0
+margin_right = 352.0
+margin_bottom = 86.0
+text = "When Have Fami X ..."
+
+[node name="Button13" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel/VBox"]
+visible = false
+margin_top = 150.0
+margin_right = 352.0
+margin_bottom = 176.0
+text = "Check_Target_LM_Race"
+
+[node name="CancelBtn" type="Button" parent="CommandCondEffControl/MainCommandCondEffPanel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = -48.0
+margin_right = -17.0
+margin_bottom = -14.0
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}

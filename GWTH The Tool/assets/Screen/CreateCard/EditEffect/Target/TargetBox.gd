@@ -215,22 +215,22 @@ func _on_SaveBtn_pressed():
 	target.method = methodOptionBtn.selected
 	if target.method == EnumData.TargetMethod.Choose or target.method == EnumData.TargetMethod.Random:
 		if FromConstantCheckBox.pressed:
-			target.amount.fromValue.type = EnumData.NumberValueType.Constant
+			target.amount.fromValue.type = AmountNumber.NumberValueType.Constant
 			target.amount.fromValue.value = FromConstantSpinBox.value
 		if FromLMCheckBox.pressed:
-			target.amount.fromValue.type = EnumData.NumberValueType.LM
+			target.amount.fromValue.type = AmountNumber.NumberValueType.LM
 			target.amount.fromValue.variableName = FromLMLineEdit.text
 		if FromSpecialCheckBox.pressed:
-			target.amount.fromValue.type = EnumData.NumberValueType.Special
+			target.amount.fromValue.type = AmountNumber.NumberValueType.Special
 	if target.method == EnumData.TargetMethod.Random:
 		if FromConstantCheckBox.pressed:
-			target.amount.toValue.type = EnumData.NumberValueType.Constant
+			target.amount.toValue.type = AmountNumber.NumberValueType.Constant
 			target.amount.toValue.value = FromConstantSpinBox.value
 		if FromLMCheckBox.pressed:
-			target.amount.toValue.type = EnumData.NumberValueType.LM
+			target.amount.toValue.type = AmountNumber.NumberValueType.LM
 			target.amount.toValue.variableName = FromLMLineEdit.text
 		if FromSpecialCheckBox.pressed:
-			target.amount.toValue.type = EnumData.NumberValueType.Special
+			target.amount.toValue.type = AmountNumber.NumberValueType.Special
 	if target.method != EnumData.TargetMethod.No_Target:
 		target.target.user = SelfCheckBox.pressed
 		target.target.player1 = Player1CheckBox.pressed

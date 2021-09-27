@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/Theme/new_theme-01.tres" type="Theme" id=1]
 [ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/CardConditionControl.gd" type="Script" id=2]
 [ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/CardConditionItem.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/CommandPanelControl.gd" type="Script" id=4]
+[ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/CommandCardCondPanelControl.gd" type="Script" id=4]
 [ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/ConditionType_buttongroup.tres" type="ButtonGroup" id=5]
 [ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/CVariableCondidion_buttongroup.tres" type="ButtonGroup" id=6]
 [ext_resource path="res://assets/Screen/CreateCard/EditEffect/TargetCardCondition/PConditionType_buttongroup.tres" type="ButtonGroup" id=7]
@@ -261,9 +261,6 @@ margin_right = 250.0
 margin_bottom = 26.0
 rect_min_size = Vector2( 250, 0 )
 size_flags_horizontal = 0
-text = "HP"
-items = [ "HP", null, false, 0, null, "MaxHP", null, false, 1, null, "Number of Card in Deck", null, false, 2, null, "Number of Card in Hand", null, false, 3, null, "Number of Card in Field", null, false, 4, null, "Number of Hollow have", null, false, 5, null, "Number of Area have", null, false, 6, null ]
-selected = 0
 
 [node name="Label" type="Label" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value/Number"]
 margin_left = 258.0
@@ -323,9 +320,6 @@ margin_left = 124.0
 margin_right = 374.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 250, 0 )
-text = "HP"
-items = [ "HP", null, false, 0, null, "MaxHP", null, false, 1, null, "Number of Card in Deck", null, false, 2, null, "Number of Card in Hand", null, false, 3, null, "Number of Card in Field", null, false, 4, null, "Number of Hollow have", null, false, 5, null, "Number of Area have", null, false, 6, null ]
-selected = 0
 
 [node name="Opponent" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value"]
 margin_top = 108.0
@@ -346,9 +340,6 @@ margin_left = 124.0
 margin_right = 374.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 250, 0 )
-text = "HP"
-items = [ "HP", null, false, 0, null, "MaxHP", null, false, 1, null, "Number of Card in Deck", null, false, 2, null, "Number of Card in Hand", null, false, 3, null, "Number of Card in Field", null, false, 4, null, "Number of Hollow have", null, false, 5, null, "Number of Area have", null, false, 6, null ]
-selected = 0
 
 [node name="LM" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/1/Content/Variable/Value"]
 margin_top = 144.0
@@ -519,9 +510,6 @@ __meta__ = {
 margin_right = 200.0
 margin_bottom = 26.0
 rect_min_size = Vector2( 200, 0 )
-text = "HP"
-items = [ "HP", null, false, 0, null, "MaxHP", null, false, 1, null, "ไอเทม 2", null, false, 2, null ]
-selected = 0
 
 [node name="Label" type="Label" parent="CommandPanelControl/AddCondPanel/TabContainer/2/Content/Variable/Value/Number"]
 margin_left = 208.0
@@ -703,9 +691,139 @@ margin_right = 348.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 200, 0 )
 
+[node name="3" type="Tabs" parent="CommandPanelControl/AddCondPanel/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Content" type="VBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/3"]
+margin_right = 532.0
+margin_bottom = 212.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BattlerCheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/3/Content" groups=[
+"RadioButton",
+]]
+margin_right = 532.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_vertical = 0
+group = ExtResource( 5 )
+text = "Battler"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="State" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/3/Content"]
+margin_top = 36.0
+margin_right = 532.0
+margin_bottom = 170.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="CommandPanelControl/AddCondPanel/TabContainer/3/Content/State"]
+margin_right = 20.0
+margin_bottom = 134.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/3/Content/State" groups=[
+"RadioButton",
+]]
+margin_left = 24.0
+margin_right = 144.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_vertical = 0
+disabled = true
+pressed = true
+text = "State"
+
+[node name="Value" type="VBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/3/Content/State"]
+margin_left = 148.0
+margin_right = 522.0
+margin_bottom = 134.0
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/3/Content/State/Value"]
+margin_right = 250.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 250, 0 )
+size_flags_horizontal = 0
+
+[node name="Buff" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/3/Content/State/Value"]
+margin_top = 34.0
+margin_right = 374.0
+margin_bottom = 62.0
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/3/Content/State/Value/Buff" groups=[
+"RadioButton",
+]]
+margin_right = 120.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 120, 0 )
+text = "Buff/Debuff"
+
+[node name="OptionButton" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/3/Content/State/Value/Buff"]
+margin_left = 124.0
+margin_right = 374.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 250, 0 )
+
+[node name="CardType" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/3/Content/State/Value"]
+margin_top = 70.0
+margin_right = 374.0
+margin_bottom = 98.0
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/3/Content/State/Value/CardType" groups=[
+"RadioButton",
+]]
+margin_right = 120.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 120, 0 )
+text = "CardType"
+
+[node name="OptionButton" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/3/Content/State/Value/CardType"]
+margin_left = 124.0
+margin_right = 374.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 250, 0 )
+
+[node name="AttackType" type="HBoxContainer" parent="CommandPanelControl/AddCondPanel/TabContainer/3/Content/State/Value"]
+margin_top = 106.0
+margin_right = 374.0
+margin_bottom = 134.0
+
+[node name="CheckBox" type="CheckBox" parent="CommandPanelControl/AddCondPanel/TabContainer/3/Content/State/Value/AttackType" groups=[
+"RadioButton",
+]]
+margin_right = 120.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 120, 0 )
+text = "AttackType"
+
+[node name="OptionButton" type="OptionButton" parent="CommandPanelControl/AddCondPanel/TabContainer/3/Content/State/Value/AttackType"]
+margin_left = 124.0
+margin_right = 374.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 250, 0 )
+
 [connection signal="pressed" from="CardCondPanel/ScrollContainer/VBoxContainer/AddCardCondBtn" to="." method="_on_AddCardCondBtn_pressed"]
 [connection signal="pressed" from="CardCondPanel/CancelBtn" to="." method="_on_CancelBtn_pressed"]
 [connection signal="pressed" from="CardCondPanel/SaveBtn" to="." method="_on_SaveBtn_pressed"]
 [connection signal="pressed" from="CommandPanelControl/AddCondPanel/OptionalCheckBox" to="CommandPanelControl" method="_on_OptionalCheckBox_pressed"]
 [connection signal="pressed" from="CommandPanelControl/AddCondPanel/CancelBtn" to="CommandPanelControl" method="_on_CancelBtn_pressed"]
 [connection signal="pressed" from="CommandPanelControl/AddCondPanel/SaveBtn" to="CommandPanelControl" method="_on_SaveBtn_pressed"]
+[connection signal="item_selected" from="CommandPanelControl/AddCondPanel/TabContainer/3/Content/State/Value/OptionButton" to="CommandPanelControl" method="_on_BStateOptionButton_item_selected"]

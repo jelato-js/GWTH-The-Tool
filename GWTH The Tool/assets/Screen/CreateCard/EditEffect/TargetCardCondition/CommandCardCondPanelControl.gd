@@ -45,6 +45,15 @@ onready var CSpecialCheckBox: CheckBox = $"AddCondPanel/TabContainer/2/Content/S
 onready var CSpecialOptionBtn: OptionButton = $"AddCondPanel/TabContainer/2/Content/Special/OptionButton"
 
 #-----------------
+onready var BattlerCheckBox:CheckBox = $"AddCondPanel/TabContainer/3/Content/BattlerCheckBox"
+onready var BStateOptionBtn:OptionButton = $"AddCondPanel/TabContainer/3/Content/State/Value/OptionButton"
+onready var BBuffCheckBox:CheckBox = $"AddCondPanel/TabContainer/3/Content/State/Value/Buff/CheckBox"
+onready var BBuffOptionBtn:OptionButton = $"AddCondPanel/TabContainer/3/Content/State/Value/Buff/OptionButton"
+onready var BCardTypeCheckBox:CheckBox = $"AddCondPanel/TabContainer/3/Content/State/Value/CardType/CheckBox"
+onready var BCardTypeOptionBtn:OptionButton = $"AddCondPanel/TabContainer/3/Content/State/Value/CardType/OptionButton"
+onready var BAttackTypeCheckBox:CheckBox = $"AddCondPanel/TabContainer/3/Content/State/Value/AttackType/CheckBox"
+onready var BAttackTypeOptionBtn:OptionButton = $"AddCondPanel/TabContainer/3/Content/State/Value/AttackType/OptionButton"
+#-----------------
 
 var cardCondEditing: CardCondition
 var index: int
@@ -54,11 +63,15 @@ var adding: bool
 func _ready():
 	PVOperatorOptionBtn.get_popup().clear()
 	CVOperatorOptionBtn.get_popup().clear()
+	PVOperatorOptionBtn.selected = -1
+	CVOperatorOptionBtn.selected = -1
 	for i in EnumData.OperatorValue():
 		PVOperatorOptionBtn.get_popup().add_radio_check_item(EnumData.OperatorValue()[i], i)
 		CVOperatorOptionBtn.get_popup().add_radio_check_item(EnumData.OperatorValue()[i], i)
-	PVOperatorOptionBtn.select(0)
-	CVOperatorOptionBtn.select(0)
+	PVOperatorOptionBtn.get_popup().set_item_as_radio_checkable(0, true)
+	CVOperatorOptionBtn.get_popup().set_item_as_radio_checkable(0, true)
+	#PVOperatorOptionBtn.select(0)
+	#CVOperatorOptionBtn.select(0)
 	#-------
 	PVNumberOptionBtn.get_popup().clear()
 	PVPlayerOptionBtn.get_popup().clear()
@@ -74,6 +87,7 @@ func _ready():
 	CVNumberOptionBtn.get_popup().clear()
 	for i in EnumData.CardAttributeCond:
 		CVNumberOptionBtn.get_popup().add_radio_check_item(i)
+	CVNumberOptionBtn.select(0)
 	#-------
 	
 	#-------
@@ -87,13 +101,33 @@ func _ready():
 		CSpecialOptionBtn.get_popup().add_radio_check_item(i)
 	CSpecialOptionBtn.select(0)
 	#-------
+	
+	BStateOptionBtn.get_popup().clear()
+	for i in StateValue.StateId:
+		BStateOptionBtn.get_popup().add_radio_check_item(i)
+	BBuffOptionBtn.get_popup().clear()
+	for i in StateValue.BuffCardState:
+		BBuffOptionBtn.get_popup().add_radio_check_item(i)
+	BCardTypeOptionBtn.get_popup().clear()
+	for i in CardData.CARD_TYPE:
+		BCardTypeOptionBtn.get_popup().add_radio_check_item(i)
+	BAttackTypeOptionBtn.get_popup().clear()
+	for i in EnumData.AttackType:
+		BAttackTypeOptionBtn.get_popup().add_radio_check_item(i)
+	BStateOptionBtn.select(0)
+	BBuffOptionBtn.select(0)
+	BCardTypeOptionBtn.select(0)
+	BAttackTypeOptionBtn.select(0)
+	
+	#-------
 	var nodeRadio = get_tree().get_nodes_in_group("RadioButton")
 	for node in nodeRadio:
 		node.connect("pressed", self, "_RefreshNodeEnable")
 	hide()
 
-func ShowPanel(data: CardCondition, index:int = 0, new: bool = false):
+func ShowPanel(data: CardCondition, index_cond:int = 0, new: bool = false):
 	adding = new
+	index = index_cond
 	cardCondEditing = data
 	optionalCheckBox.pressed = cardCondEditing.optional
 	match(cardCondEditing.conditionType):
@@ -106,16 +140,16 @@ func ShowPanel(data: CardCondition, index:int = 0, new: bool = false):
 					PVNumberOptionBtn.selected = cardCondEditing.variableCond.number1
 					PVOperatorOptionBtn.selected = cardCondEditing.variableCond.operator
 					match(cardCondEditing.variableCond.checkType):
-						EnumData.NumberValueType.Constant:
+						AmountNumber.NumberValueType.Constant:
 							PVConstantCheckBox.pressed = true
 							PVConstantSpinBox.value = cardCondEditing.variableCond.number2
-						EnumData.NumberValueType.Player:
+						AmountNumber.NumberValueType.Player:
 							PVPlayerCheckBox.pressed = true
 							PVPlayerOptionBtn.selected = cardCondEditing.variableCond.number2
-						EnumData.NumberValueType.Opponent:
+						AmountNumber.NumberValueType.Opponent:
 							PVOpponentCheckBox.pressed = true
 							PVOpponentOptionBtn.selected = cardCondEditing.variableCond.number2
-						EnumData.NumberValueType.LM:
+						AmountNumber.NumberValueType.LM:
 							PVLMCheckBox.pressed = true
 							PVLMLineEdit.text = cardCondEditing.variableCond.variableName
 				CardCondition.PlayerCondidionType.Have:
@@ -133,10 +167,10 @@ func ShowPanel(data: CardCondition, index:int = 0, new: bool = false):
 					CVNumberOptionBtn.selected = cardCondEditing.variableCond.number1
 					CVOperatorOptionBtn.selected = cardCondEditing.variableCond.operator
 					match(cardCondEditing.variableCond.checkType):
-						EnumData.NumberValueType.Constant:
+						AmountNumber.NumberValueType.Constant:
 							CVConstantCheckBox.pressed = true
 							CVConstantSpinBox.value = cardCondEditing.variableCond.number2
-						EnumData.NumberValueType.LM:
+						AmountNumber.NumberValueType.LM:
 							CVLMCheckBox.pressed = true
 							CVLMLineEdit.text = cardCondEditing.variableCond.variableName
 				CardCondition.CardCondidionType.Family:
@@ -151,6 +185,20 @@ func ShowPanel(data: CardCondition, index:int = 0, new: bool = false):
 				CardCondition.CardCondidionType.Special:
 					CSpecialCheckBox.pressed = true
 					CSpecialOptionBtn.selected = cardCondEditing.special
+		CardCondition.ConditionType.Battler:
+			tabContainer.current_tab = 2
+			BattlerCheckBox.pressed = true
+			BStateOptionBtn.selected = cardCondEditing.state_value.id
+			match(cardCondEditing.state_value.option_type):
+				StateValue.StateOptionType.BuffId:
+					BBuffCheckBox.pressed = true
+					BBuffOptionBtn.selected = cardCondEditing.state_value.option_id
+				StateValue.StateOptionType.CardType:
+					BCardTypeCheckBox.pressed = true
+					BCardTypeOptionBtn.selected = cardCondEditing.state_value.option_id
+				StateValue.StateOptionType.AttackType:
+					BAttackTypeCheckBox.pressed = true
+					BAttackTypeOptionBtn.selected = cardCondEditing.state_value.option_id
 	_RefreshNodeEnable()
 	show()
 
@@ -188,7 +236,20 @@ func _RefreshNodeEnable():
 	CElementOptionBtn.disabled = CElementCheckBox.disabled or not CElementCheckBox.pressed
 	CSpecialCheckBox.disabled = not CardCheckBox.pressed
 	CSpecialOptionBtn.disabled = CSpecialCheckBox.disabled or not CSpecialCheckBox.pressed
-
+	
+	BStateOptionBtn.disabled = not BattlerCheckBox.pressed
+	BBuffCheckBox.disabled = BStateOptionBtn.disabled or not [StateValue.StateId.BuffState, StateValue.StateId.DebuffState].has(BStateOptionBtn.selected)
+	if BBuffCheckBox.disabled:
+		BBuffCheckBox.pressed = false
+	BBuffOptionBtn.disabled = BBuffCheckBox.disabled or not BBuffCheckBox.pressed
+	BCardTypeCheckBox.disabled = BStateOptionBtn.disabled or not BStateOptionBtn.selected == StateValue.StateId.Unaffected
+	if BCardTypeCheckBox.disabled:
+		BCardTypeCheckBox.pressed = false
+	BCardTypeOptionBtn.disabled = BCardTypeCheckBox.disabled or not BCardTypeCheckBox.pressed
+	BAttackTypeCheckBox.disabled = BStateOptionBtn.disabled or not BStateOptionBtn.selected == StateValue.StateId.Reflect
+	if BAttackTypeCheckBox.disabled:
+		BAttackTypeCheckBox.pressed = false
+	BAttackTypeOptionBtn.disabled = BAttackTypeCheckBox.disabled or not BAttackTypeCheckBox.pressed
 
 func _on_OptionalCheckBox_pressed():
 	cardCondEditing.optional = optionalCheckBox.pressed
@@ -201,21 +262,22 @@ func _on_SaveBtn_pressed():
 			cardCondEditing.variableCond.number1 = PVNumberOptionBtn.selected
 			cardCondEditing.variableCond.operator = PVOperatorOptionBtn.selected
 			if PVConstantCheckBox.pressed:
-				cardCondEditing.variableCond.checkType = EnumData.NumberValueType.Constant
+				cardCondEditing.variableCond.checkType = AmountNumber.NumberValueType.Constant
 				cardCondEditing.variableCond.number2 = PVConstantSpinBox.value
 			elif PVPlayerCheckBox.pressed:
-				cardCondEditing.variableCond.checkType = EnumData.NumberValueType.Player
+				cardCondEditing.variableCond.checkType = AmountNumber.NumberValueType.Player
 				cardCondEditing.variableCond.number2 = PVPlayerOptionBtn.selected
 			elif PVOpponentCheckBox.pressed:
-				cardCondEditing.variableCond.checkType = EnumData.NumberValueType.Opponent
+				cardCondEditing.variableCond.checkType = AmountNumber.NumberValueType.Opponent
 				cardCondEditing.variableCond.number2 = PVOpponentOptionBtn.selected
 			else: #PVLMCheckBox.pressed
-				cardCondEditing.variableCond.checkType = EnumData.NumberValueType.LM
+				cardCondEditing.variableCond.checkType = AmountNumber.NumberValueType.LM
 				cardCondEditing.variableCond.variableName = PVLMLineEdit.text
 		else:
 			cardCondEditing.conditionWhat = CardCondition.PlayerCondidionType.Have
 			cardCondEditing.cardId = PHaveLineEdit.text
-	else:
+	
+	if CardCheckBox.pressed:
 		cardCondEditing.conditionType = CardCondition.ConditionType.Card
 		if CIdCheckBox.pressed:
 			cardCondEditing.conditionWhat = CardCondition.CardCondidionType.Id
@@ -225,10 +287,10 @@ func _on_SaveBtn_pressed():
 			cardCondEditing.variableCond.number1 = CVNumberOptionBtn.selected
 			cardCondEditing.variableCond.operator = CVOperatorOptionBtn.selected
 			if CVConstantCheckBox.pressed:
-				cardCondEditing.variableCond.checkType = EnumData.NumberValueType.Constant
+				cardCondEditing.variableCond.checkType = AmountNumber.NumberValueType.Constant
 				cardCondEditing.variableCond.number2 = CVConstantSpinBox.value
 			else: #PVLMCheckBox.pressed
-				cardCondEditing.variableCond.checkType = EnumData.NumberValueType.LM
+				cardCondEditing.variableCond.checkType = AmountNumber.NumberValueType.LM
 				cardCondEditing.variableCond.variableName = CVLMLineEdit.text
 		elif CFamilyCheckBox.pressed:
 			cardCondEditing.conditionWhat = CardCondition.CardCondidionType.Family
@@ -242,8 +304,27 @@ func _on_SaveBtn_pressed():
 		else:
 			cardCondEditing.conditionWhat = CardCondition.CardCondidionType.Special
 			cardCondEditing.special = CSpecialOptionBtn.selected
+	
+	if BattlerCheckBox.pressed:
+		cardCondEditing.conditionType = CardCondition.ConditionType.Battler
+		cardCondEditing.conditionWhat = CardCondition.BattlerCondidionType.State
+		cardCondEditing.state_value.id = BStateOptionBtn.selected
+		if BBuffCheckBox.pressed or not BBuffCheckBox.disabled:
+			cardCondEditing.state_value.option_type = StateValue.StateOptionType.BuffId
+			cardCondEditing.state_value.option_id = BBuffOptionBtn.selected
+		if BCardTypeCheckBox.pressed or not BCardTypeCheckBox.disabled:
+			cardCondEditing.state_value.option_type = StateValue.StateOptionType.CardType
+			cardCondEditing.state_value.option_id = BCardTypeOptionBtn.selected
+		if BAttackTypeCheckBox.pressed or not BAttackTypeOptionBtn.selected:
+			cardCondEditing.state_value.option_type = StateValue.StateOptionType.AttackType
+			cardCondEditing.state_value.option_id = BAttackTypeOptionBtn.selected
+	
 	emit_signal("saveItem", cardCondEditing, index, adding)
 	hide()
 
 func _on_CancelBtn_pressed():
 	hide()
+
+
+func _on_BStateOptionButton_item_selected(index):
+	_RefreshNodeEnable()
